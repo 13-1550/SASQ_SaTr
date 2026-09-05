@@ -1,0 +1,27 @@
+/*Input*/
+
+
+ .input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.input-container label {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    outline: none;
+    background: var(--white);
+}
+
+.input:focus {
+    border-color: var(--primary-green);
+}   
+
