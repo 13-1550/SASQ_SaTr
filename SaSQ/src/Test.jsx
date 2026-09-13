@@ -59,7 +59,7 @@ function Test() {
                 <section>
                     <h2>Input</h2>
 
-                    <Card>
+                    <card>
                         <Input
                             label="Course Name"
                             placeholder="Enter course name"
@@ -70,7 +70,7 @@ function Test() {
                             type="email"
                             placeholder="Enter email"
                         />
-                    </Card>
+                    </card>
                 </section>
 
 
@@ -80,23 +80,23 @@ function Test() {
 
                     <div className="test-card-grid">
 
-                        <Card>
+                        <card>
                             <h3>Total Courses</h3>
                             <strong>24</strong>
                             <p>training courses</p>
-                        </Card>
+                        </card>
 
-                        <Card>
+                        <card>
                             <h3>Completed Courses</h3>
                             <strong>5</strong>
                             <p>Successfully completed</p>
-                        </Card>
+                        </card>
 
-                        <Card>
+                        <card>
                             <h3>Pending Requests</h3>
                             <strong>18</strong>
                             <p>Waiting for approval</p>
-                        </Card>
+                        </card>
 
                     </div>
                 </section>
