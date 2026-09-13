@@ -1,4 +1,3 @@
-import "./Card.css";
 
 function Card(props) {
   let cardLabel = props.label;
