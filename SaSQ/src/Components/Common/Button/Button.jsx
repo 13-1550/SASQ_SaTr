@@ -1,11 +1,16 @@
-import "./Button.css";
-
-function Button(props) {
-  let buttonText = props.text;
-  let buttonType = props.type;
-  let fullClassName = "btn btn-" + buttonType;
-
-  return <button className={fullClassName}>{buttonText}</button>;
+function Button({
+    children,
+    type = "green",
+    onClick
+}) {
+    return (
+        <button
+            className={`btn btn-${type}`}
+            onClick={onClick}
+        >
+            {children}
+        </button>
+    );
 }
 
 export default Button;

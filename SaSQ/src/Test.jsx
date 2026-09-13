@@ -6,6 +6,13 @@ import Input from "./Components/Common/Input/Input";
 import Modal from "./Components/Common/Modal/Modal";
 import Table from "./Components/Common/Table/Table";
 import StatusBadge from "./Components/Common/StatusBadge/StatusBadge";
+import Button from "./Components/Common/Button/Button";
+
+import{
+    LibraryBig,
+    Check,
+    Hourglass,
+}from "lucide-react";
 
 function Test() {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -59,7 +66,7 @@ function Test() {
                 <section>
                     <h2>Input</h2>
 
-                    <card>
+                    <div className="box">
                         <Input
                             label="Course Name"
                             placeholder="Enter course name"
@@ -70,50 +77,54 @@ function Test() {
                             type="email"
                             placeholder="Enter email"
                         />
-                    </card>
+                    </div>
                 </section>
 
 
                 {/* CARD */}
-                <section>
-                    <h2>Card</h2>
+                    <section>
+                        <h2>Card</h2>
 
-                    <div className="test-card-grid">
+                        <div className="test-card-grid">
 
-                        <card>
-                            <h3>Total Courses</h3>
-                            <strong>24</strong>
-                            <p>training courses</p>
-                        </card>
+                            <Card
+                                 label="Total Courses"
+                                number="24"
+                                icon={<LibraryBig size={28} color="var(--primary-green)" />}
+                                numberColor="green"
+                            />
 
-                        <card>
-                            <h3>Completed Courses</h3>
-                            <strong>5</strong>
-                            <p>Successfully completed</p>
-                        </card>
+                            <Card
+                               label="Completed Courses"
+                                number="5"
+                                icon={<Check size={28} color="var(--primary-green)" />}
+                                numberColor="green"
+                                />
 
-                        <card>
-                            <h3>Pending Requests</h3>
-                            <strong>18</strong>
-                            <p>Waiting for approval</p>
-                        </card>
+                            <Card
+                                label="Pending Requests"
+                                number="18"
+                                icon={<Hourglass size={28} color="#f1b40b" />}
+                                numberColor="orange"
+                            />
+                                                        
 
-                    </div>
-                </section>
+                        </div>
+                    </section>
 
 
                 {/* STATUS BADGES */}
                 <section>
                     <h2>Status Badges</h2>
 
-                    <Card>
+                    <card>
                         <div className="badge-test">
                             <StatusBadge status="Completed" />
                             <StatusBadge status="Warning" />
                             <StatusBadge status="Expired" />
                             <StatusBadge status="Pending" />
                         </div>
-                    </Card>
+                    </card>
                 </section>
 
 
@@ -132,13 +143,13 @@ function Test() {
                 <section>
                     <h2>Modal</h2>
 
-                    <Card>
-                        <button
+                    <card>
+                        <Button
                             onClick={() => setIsModalOpen(true)}
                         >
                             Open Modal
-                        </button>
-                    </Card>
+                        </Button>
+                    </card>
 
                     <Modal
                         isOpen={isModalOpen}
@@ -150,11 +161,10 @@ function Test() {
                             component.
                         </p>
 
-                        <button
-                            onClick={() => setIsModalOpen(false)}
-                        >
-                            Close
-                        </button>
+                        <Button type="white"
+                        onClick={() => setIsModalOpen(false)}>
+                        Cancel
+                        </Button>
                     </Modal>
                 </section>
 

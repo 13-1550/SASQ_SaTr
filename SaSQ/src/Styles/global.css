@@ -3,9 +3,12 @@
 * {
     font-family: 'Inter', sans-serif;
 }
+html,
+#root,
 body {
     margin: 0;
     font-family: 'Inter', sans-serif;
+    ;
 }
 :root {
     --primary-green: #15641A;
@@ -44,7 +47,7 @@ body {
 
 .input {
     margin: 2px 3px;
-    width: 100%;
+    width: flex;
     padding: 8px 10px;
     border: 1px solid var(--border);
     border-radius: var(--radius-sm);
@@ -145,6 +148,7 @@ body {
 .sidebar {
     width: 190px;
     min-height: 100vh;
+    min-width: 190px;
     background: #ffffff;
     border-right: 1px solid #eeeeee;
     flex-shrink: 0;
@@ -306,12 +310,15 @@ body {
 .test-page {
     display: flex;
     min-height: 100vh;
+    width: 100%;
     background: #f8f9fa;
 }
 
 .test-content {
     flex: 1;
+    min-width: 0;
     padding: 30px;
+    box-sizing: border-box;
 }
 
 .test-content section {
@@ -339,33 +346,43 @@ body {
     align-items: center;
 }
 /*Button*/
-.btn {
-  width: 120px;
-  height: 45px;
-  border: none;
-  border-radius: 6px;
-  font-size: 16px;
-  cursor: pointer;
+.btn{
+    padding: 10px 20px;
+
+    border-radius: 8px;
+    border: 1px solid transparent;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 500;
+
+    cursor: pointer;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
 }
 
-.btn-primary {
+.btn-green {
   background-color: #037c43;
   color: white;
 }
-.btn-secondary {
+.btn-white {
   background-color: white;
   color: #525253;
-  border: 2px solid #989797;
+  border: 1px solid #98979780;
 }
-.btn-danger {
+.btn-red {
   background-color: #dc3545;
   color: white;
 }
 
 /*card*/
 .card {
-  background-color: white;
-  border: 1px solid #e0e0e0;
+  background-color: rgba(249, 249, 249, 0.517);
+  border: 1px solid #73737350;
   border-radius: 10px;
   padding: 16px 20px;
   min-width: 180px;
@@ -384,11 +401,12 @@ body {
 }
 
 .card-icon {
-  font-size: 20px;
+  size: 30px;
+  weight: 800;
 }
 
 .card-number {
-  font-size: 32px;
+  font-size: 24px;
   font-weight: bold;
   margin: 0;
 }
@@ -445,4 +463,15 @@ body {
   margin: 0;
   font-size: 28px;
   font-weight: bold;
+}
+
+.box {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  border: 1px solid #d1d1d1;
+  padding: 16px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
 }
