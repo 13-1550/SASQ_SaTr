@@ -1,7 +1,8 @@
-import Test from "./Test";
+
+import FlaggedEmployeesTable from "./Pages/Manager/MMainPage";
 
 function App() {
-    return <Test />;
+    return <FlaggedEmployeesTable />;
 }
 
 export default App;
