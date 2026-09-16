@@ -1,7 +1,7 @@
-import Test from "./Test";
+import ManagerReports from "./Pages/Manager/ManagerReports";
 
 function App() {
-    return <Test />;
+    return <ManagerReports />;
 }
 
 export default App;
