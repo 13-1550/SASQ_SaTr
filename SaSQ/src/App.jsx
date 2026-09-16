@@ -1,8 +1,7 @@
-
-import FlaggedEmployeesTable from "./Pages/Manager/MMainPage";
+import ManagerReports from "./Pages/Manager/ManagerReports";
 
 function App() {
-    return <FlaggedEmployeesTable />;
+    return <ManagerReports />;
 }
 
 export default App;
