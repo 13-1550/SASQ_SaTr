@@ -825,3 +825,26 @@ body {
 .certificate-value.pending span {
     color: #999999;
 }
+
+/* Main pag */
+
+.dashboard-page {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    background: var(--background);
+    overflow-x: hidden;
+}
+
+.dashboard-cards{
+    flex-direction: column;
+    gap:5px;
+}
+
+.table-title{
+    margin-top: 10px ;
+    background:var(--secondary-green);
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px 10px 0 0;
+}

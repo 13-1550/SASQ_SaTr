@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 
 
-function FlaggedEmployeesTable() {
+function ManagerMain() {
 
     // Table Headers
     const headers = [
@@ -92,9 +92,12 @@ function FlaggedEmployeesTable() {
 
                     <div className="employee-total">
 
-                        <span>Total Employees</span>
-
-                        <strong>72</strong>
+                        <Card
+                        label="Employees"
+                        number="72"
+                        icon={<Users size={28} />}
+                        numberColor="green"
+                    />
 
                     </div>
 
@@ -244,6 +247,6 @@ function FlaggedEmployeesTable() {
 }
 
 
-export default FlaggedEmployeesTable;
+export default ManagerMain;
 
                

@@ -1,7 +1,8 @@
-import ManagerReports from "./Pages/Manager/ManagerReports";
+import ManagerMain from "./Pages/Manager/MMainPage";
+import ManagerReports from "./Pages/Manager/MMainPage";
 
 function App() {
-    return <ManagerReports />;
+    return <ManagerMain />;
 }
 
 export default App;
