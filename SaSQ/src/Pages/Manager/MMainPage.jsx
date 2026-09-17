@@ -78,18 +78,7 @@ function ManagerMain() {
 
                     <div className="employees-title">
 
-                        <div className="employees-title-icon">
-                            <Users size={20} />
-                        </div>
-
-                        <div>
-                            <h2>Employees</h2>
-
-                        </div>
-
-                    </div>
-
-
+                        
                     <div className="employee-total">
 
                         <Card
@@ -99,7 +88,16 @@ function ManagerMain() {
                         numberColor="green"
                     />
 
-                    </div>
+                    </div>;
+
+                        <h2>Certificates Status Overview</h2>
+
+                        </div>
+
+                    
+
+
+
 
                 </section>
 
@@ -218,26 +216,7 @@ function ManagerMain() {
                 </section>
 
 
-
-                {/* Example Status Badges */}
-
-                <section className="badge-section">
-
-                    <h2>Status Examples</h2>
-
-                    <div className="badge-test">
-
-                        <StatusBadge status="Completed" />
-
-                        <StatusBadge status="Warning" />
-
-                        <StatusBadge status="Expired" />
-
-                        <StatusBadge status="Pending" />
-
-                    </div>
-
-                </section>
+               
 
 
             </main>

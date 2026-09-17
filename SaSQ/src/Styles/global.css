@@ -278,13 +278,14 @@ body {
     width: 100%;
     border-collapse: collapse;
     font-size: 14px;
+    border-radius: 0 0 10px 10px;
 }
 
 .table th {
     padding: 14px 20px;
     text-align: left;
     background: #f8f9fa;
-    color: #555555;
+    color: #000000;
     font-size: 12px;
     font-weight: 600;
 }
@@ -839,6 +840,9 @@ body {
 .dashboard-cards{
     flex-direction: column;
     gap:5px;
+    padding: 20px;
+    width: 20;
+  
 }
 
 .table-title{
@@ -847,4 +851,44 @@ body {
     color: #fff;
     padding: 10px;
     border-radius: 10px 10px 0 0;
+}
+.status-box {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 85px;
+
+    border-radius: 8px;
+
+    padding: 12px;
+
+    box-sizing: border-box;
+    gap: 15px;
+}
+
+.status-box-green {
+    background-color: var(--secondary-green);
+    color: #060606;
+    
+    
+}
+.status-box-orange {
+    background-color:#F2C738;
+    color: #060606;
+    ;
+}
+.status-box-red {
+    background-color: #910303;
+    color: #060606;
+   
+}
+.status-box-gray {
+    background-color: #B7B7B7;
+    color: #060606;
+    
 }
