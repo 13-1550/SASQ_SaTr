@@ -64,7 +64,6 @@ function ManagerMain() {
 
             <Sidebar
                 role="manager"
-                activePage="Main page"
             />
 
 
@@ -88,7 +87,7 @@ function ManagerMain() {
                         numberColor="green"
                     />
 
-                    </div>;
+                    </div>
 
                         <h2>Certificates Status Overview</h2>
 
@@ -158,37 +157,34 @@ function ManagerMain() {
                     <div className="status-boxes">
 
                         <div className="status-box status-box-green">
-
+                            <strong> 320 </strong>
                             <span>Valid</span>
 
-                            <strong>320</strong>
+                            
 
                         </div>
 
 
                         <div className="status-box status-box-orange">
-
+                            <strong> 47 </strong>
                             <span>Soon to Expire</span>
 
-                            <strong>47</strong>
-
+                            
                         </div>
 
 
                         <div className="status-box status-box-red">
-
+                            <strong> 25 </strong>
                             <span>Expired</span>
 
-                            <strong>25</strong>
+                            
 
                         </div>
 
 
                         <div className="status-box status-box-gray">
-
+                            <strong> 12 </strong>
                             <span>Pending</span>
-
-                            <strong>12</strong>
 
                         </div>
 

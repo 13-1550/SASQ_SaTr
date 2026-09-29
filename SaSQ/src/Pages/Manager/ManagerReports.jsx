@@ -97,7 +97,6 @@ const filteredEmployees = employees.filter((employee) =>
 
             <Sidebar
                 role="manager"
-                activePage="Reports"
             />
 
                <main className="ManagerReports-content">
