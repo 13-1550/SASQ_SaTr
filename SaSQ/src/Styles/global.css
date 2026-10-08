@@ -965,3 +965,91 @@ body {
     font-size: 10px;
     margin: 0;
 }
+
+/*\Manager courses*/
+.ManagerCourses{
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    background: var(--background);
+    overflow-x: hidden;
+    gap:10px;
+
+}
+
+.ManagerCourses .CoursesFilters select{
+    gap:15px;
+    display: inline;
+    margin: 5px;
+    margin-bottom: 15px;
+    padding: 2px 12px 2px 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 2px 1px rgba(0, 0, 0, 0.15);
+    font-size: 14px;
+    color: #222;
+    outline: none;
+    cursor: pointer;border-radius: 2px;
+
+
+}
+
+.ManagerCourses {
+    display: flex;
+    min-height: 100vh;
+    background: #f7f7f7;
+}
+
+.MCourses-content {
+    flex: 1;
+    padding: 45px 55px;
+}
+
+.MCourses-content h1 {
+    margin: 0 0 25px 0;
+    font-size: 28px;
+    font-weight: 500;
+    color: #111;
+}
+
+/* FILTERS */
+
+.CoursesFilters {
+    width: 100%;
+}
+
+.course-filter-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 25px;
+}
+
+.course-filter-row select {
+    width: 165px;
+    height: 38px;
+
+    padding: 0 12px;
+
+    background: white;
+    border: none;
+    border-radius: 9px;
+
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+
+    font-size: 14px;
+    color: #777;
+
+    cursor: pointer;
+}
+
+.course-filter-row select:focus {
+    outline: none;
+}
+
+.details-button{
+    border:none;
+    background: none;
+    color: var(--primary-green);
+}

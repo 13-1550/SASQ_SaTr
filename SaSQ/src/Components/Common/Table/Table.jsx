@@ -1,10 +1,16 @@
 import React from "react";
 
-const Table = ({ headers = [], data = [], className = "" }) => {
+const Table = ({
+    headers = [],
+    data = [],
+    fields = [],
+    className = "",
+    actions
+}) => {
     return (
         <div className={`table-container ${className}`}>
             <table className="table">
-                
+
                 <thead>
                     <tr>
                         {headers.map((header, index) => (
@@ -12,18 +18,31 @@ const Table = ({ headers = [], data = [], className = "" }) => {
                                 {header}
                             </th>
                         ))}
+            {actions && <th>Details</th>}
                     </tr>
                 </thead>
 
                 <tbody>
                     {data.length > 0 ? (
                         data.map((row, rowIndex) => (
-                            <tr key={rowIndex}>
-                                {Object.values(row).map((cell, cellIndex) => (
+                            <tr
+                                key={rowIndex}
+                                onClick={() => onRowClick?.(row)}
+                            >
+                                {fields.map((field, cellIndex) => (
                                     <td key={cellIndex}>
-                                        {cell}
+                                        {Array.isArray(row[field])
+                                            ? row[field].join(", ")
+                                            : row[field]}
                                     </td>
                                 ))}
+
+                                {actions && (
+                    <td>
+                        {actions(row)}
+                    </td>
+                )}
+
                             </tr>
                         ))
                     ) : (

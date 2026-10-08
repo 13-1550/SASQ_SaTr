@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import ManagerMain from "./Pages/Manager/MMainPage";
 import ManagerReports from "./Pages/Manager/ManagerReports";
+import ManagerCourses from "./Pages/Manager/ManagerCourses";
 
 function App() {
     return (
@@ -23,6 +24,10 @@ function App() {
                     element={<ManagerReports />}
                 />
 
+                <Route
+                path="/manager/courses"
+                element={<ManagerCourses />}
+                />
             </Routes>
         </BrowserRouter>
     );
