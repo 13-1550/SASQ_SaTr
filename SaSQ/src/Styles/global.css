@@ -252,6 +252,7 @@ body {
 .status-warning {
     background: #fff0df;
     color: #F29d38;
+    border: #f29e38b5 1px solid;
 }
 
 .status-expired {
@@ -264,6 +265,17 @@ body {
     color: var(--text-secondary);
 }
 
+.status-active{
+    background: #d9f7df;
+    color:var(--secondary-green);
+    border: #08752e9a 1px solid;
+}
+
+.status-inactive{
+    background: #f4b3b3c7;
+    color: #A40000;
+    border: #a40000b3 1px solid;
+}
 /* Table */
 
 
@@ -980,17 +992,18 @@ body {
 .ManagerCourses .CoursesFilters select{
     gap:15px;
     display: inline;
-    margin: 5px;
     margin-bottom: 15px;
-    padding: 2px 12px 2px 10px;
-    border: none;
-    border-radius: 10px;
+    margin-right: 18px;
+    margin-bottom: 15px;
+    padding: 5px 19px 5px 10px;
+    border: transparent;
+    border-radius: 35px;
     background-color: white;
     box-shadow: 0 2px 1px rgba(0, 0, 0, 0.15);
     font-size: 14px;
     color: #222;
     outline: none;
-    cursor: pointer;border-radius: 2px;
+    cursor: pointer;border-radius: 10px;
 
 
 }
@@ -1017,16 +1030,17 @@ body {
 
 .CoursesFilters {
     width: 100%;
+    border-radius: 5px;
 }
 
 .course-filter-row {
     display: flex;
     align-items: center;
     gap: 16px;
-    margin-bottom: 25px;
+    margin-bottom: 35px;
 }
 
-.course-filter-row select {
+.courseFilter-row select {
     width: 165px;
     height: 38px;
 
@@ -1034,7 +1048,7 @@ body {
 
     background: white;
     border: none;
-    border-radius: 9px;
+    border-radius: 10px;
 
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
 
@@ -1046,6 +1060,7 @@ body {
 
 .course-filter-row select:focus {
     outline: none;
+    
 }
 
 .details-button{
@@ -1177,6 +1192,262 @@ body {
     .course-detail-field:nth-child(4),
     .mandatory-field {
         grid-column: 1;
+    }
+}
+
+
+/*Manager_Employees*/
+
+
+
+.ManagerEmployees {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+    background: #fff;
+    color: #222;
+    box-sizing: border-box;
+}
+
+.MEmployees-content {
+    flex: 1;
+    min-width: 0;
+    padding: 28px 32px;
+    box-sizing: border-box;
+}
+
+
+.Employees-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 28px;
+    padding-top: 4px;
+}
+
+.Employees-header h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: #222;
+}
+
+
+
+.EmployeesFilters {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+    margin-bottom: 20px;
+}
+
+
+.EmployeesFilters > *:first-child {
+    width: 100%;
+    min-width: 0;
+}
+.EmployeesFilters input {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 44px;
+    padding: 10px 14px;
+    border: 1px solid #dedfe3;
+    border-radius: 9px;
+    background: #fff;
+    color: #333;
+    font-size: 15px;
+    outline: none;
+}
+
+.EmployeesFilters input:focus {
+    border-color: #9aa5b5;
+    box-shadow: 0 0 0 3px rgba(100, 120, 150, 0.1);
+}
+
+
+.employees-sort {
+    align-self: flex-end;
+    min-width: 165px;
+    padding: 10px 32px 10px 12px;
+    border: 1px solid #dedfe3;
+    border-radius: 8px;
+    background: #fff;
+    color: #333;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+}
+
+.employees-sort:focus {
+    border-color: #9aa5b5;
+}
+
+
+
+.ManagerEmployees .table-container {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    border: 1px solid #e1e3e7;
+    border-radius: 10px;
+    background: #fff;
+    box-sizing: border-box;
+}
+
+.ManagerEmployees .table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    text-align: left;
+}
+
+/* Table headings */
+.ManagerEmployees .table thead {
+    background: #f7f8fa;
+}
+
+.ManagerEmployees .table th {
+    padding: 17px 14px;
+    color: #333;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: left;
+    white-space: nowrap;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+
+.ManagerEmployees .table td {
+    padding: 17px 14px;
+    color: #333;
+    font-size: 14px;
+    line-height: 1.45;
+    vertical-align: middle;
+    overflow-wrap: break-word;
+    border-bottom: 1px solid #eceef1;
+}
+
+.ManagerEmployees .table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.ManagerEmployees .table tbody tr {
+    transition: background-color 0.15s ease;
+}
+
+.ManagerEmployees .table tbody tr:hover {
+    background-color: #fafbfc;
+}
+
+.ManagerEmployees .table th:nth-child(1),
+.ManagerEmployees .table td:nth-child(1) {
+    width: 5%;
+}
+
+.ManagerEmployees .table th:nth-child(2),
+.ManagerEmployees .table td:nth-child(2) {
+    width: 17%;
+}
+
+.ManagerEmployees .table th:nth-child(3),
+.ManagerEmployees .table td:nth-child(3) {
+    width: 15%;
+}
+
+.ManagerEmployees .table th:nth-child(4),
+.ManagerEmployees .table td:nth-child(4) {
+    width: 17%;
+}
+
+.ManagerEmployees .table th:nth-child(5),
+.ManagerEmployees .table td:nth-child(5) {
+    width: 19%;
+}
+
+.ManagerEmployees .table th:nth-child(6),
+.ManagerEmployees .table td:nth-child(6) {
+    width: 15%;
+}
+
+.ManagerEmployees .table th:nth-child(7),
+.ManagerEmployees .table td:nth-child(7) {
+    width: 12%;
+}
+
+.ManagerEmployees .table-empty {
+    padding: 30px 16px;
+    text-align: center;
+    color: #888;
+}
+
+
+.ManagerEmployees .employee-view-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    border: none;
+    border-radius: 50%;
+    background: transparent;
+    color: #08752b;
+    cursor: pointer;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.ManagerEmployees .employee-view-button:hover {
+    background: transparent;
+    color: #034d1b;
+    transform: scale(1.12);
+}
+
+.ManagerEmployees .employee-view-button svg {
+    width: 17px;
+    height: 17px;
+    stroke-width: 2;
+}
+
+.ManagerEmployees .table td {
+    border-bottom: 1px solid #d0d0d0;
+}
+
+.ManagerEmployees .table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+.ManagerEmployees .status-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1;
+    white-space: nowrap;
+    border: none;
+    vertical-align: middle;
+    text-align: center;
+}
+.ManagerEmployees .table th:nth-child(6),
+.ManagerEmployees .table td:nth-child(6) {
+    text-align: center;
+    vertical-align: middle;
+}
+
+@media (max-width: 768px) {
+    .MEmployees-content {
+        padding: 22px 16px;
+    }
+
+    .Employees-header h1 {
+        font-size: 23px;
+    }
+
+    .ManagerEmployees .table {
+        min-width: 760px;
     }
 }
 

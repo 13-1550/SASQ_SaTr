@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import ManagerMain from "./Pages/Manager/MMainPage";
 import ManagerReports from "./Pages/Manager/ManagerReports";
 import ManagerCourses from "./Pages/Manager/ManagerCourses";
+import ManagerEmployees from "./Pages/Manager/ManagerEmployees";
+
 
 function App() {
     return (
@@ -27,6 +29,11 @@ function App() {
                 <Route
                 path="/manager/courses"
                 element={<ManagerCourses />}
+                />
+
+                <Route
+                path="/manager/employees"
+                element={<ManagerEmployees />}
                 />
             </Routes>
         </BrowserRouter>

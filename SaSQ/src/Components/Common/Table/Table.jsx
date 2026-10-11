@@ -1,3 +1,4 @@
+
 import React from "react";
 
 const Table = ({
@@ -5,20 +6,19 @@ const Table = ({
     data = [],
     fields = [],
     className = "",
-    actions
+    actions,
+    renderCell,
+    onRowClick,
 }) => {
     return (
         <div className={`table-container ${className}`}>
             <table className="table">
-
                 <thead>
                     <tr>
                         {headers.map((header, index) => (
-                            <th key={index}>
-                                {header}
-                            </th>
+                            <th key={index}>{header}</th>
                         ))}
-            {actions && <th>Details</th>}
+                        {actions && <th>Details</th>}
                     </tr>
                 </thead>
 
@@ -26,29 +26,28 @@ const Table = ({
                     {data.length > 0 ? (
                         data.map((row, rowIndex) => (
                             <tr
-                                key={rowIndex}
+                                key={row.id ?? rowIndex}
                                 onClick={() => onRowClick?.(row)}
                             >
                                 {fields.map((field, cellIndex) => (
                                     <td key={cellIndex}>
-                                        {Array.isArray(row[field])
-                                            ? row[field].join(", ")
-                                            : row[field]}
+                                        {renderCell
+                                            ? renderCell(row, field)
+                                            : Array.isArray(row[field])
+                                              ? row[field].join(", ")
+                                              : row[field]}
                                     </td>
                                 ))}
 
                                 {actions && (
-                    <td>
-                        {actions(row)}
-                    </td>
-                )}
-
+                                    <td>{actions(row)}</td>
+                                )}
                             </tr>
                         ))
                     ) : (
                         <tr>
                             <td
-                                colSpan={headers.length}
+                                colSpan={headers.length + (actions ? 1 : 0)}
                                 className="table-empty"
                             >
                                 No Data Found
@@ -56,7 +55,6 @@ const Table = ({
                         </tr>
                     )}
                 </tbody>
-
             </table>
         </div>
     );
