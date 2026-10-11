@@ -4,7 +4,7 @@ import Button from "../../Components/Common/Button/Button";
 import Input from "../../Components/Common/Input/Input";
 import Modal from "../../Components/Common/Modal/Modal";
 import Table from "../../Components/Common/Table/Table";
-import {List} from "lucide-react";
+import {List, FileText, Download} from "lucide-react";
 function ManagerCourses(){
 
     const [selectedCourse, setSelectedCourse] = useState(null);
@@ -88,12 +88,13 @@ function ManagerCourses(){
     fields={fields}
     data={dataCT}
     actions={(row) => (
-        <button
-            className="details-button"
-            onClick={() => setSelectedCourse(row)}
-        >
-            <List size={20} />
-        </button>
+         <button
+        type="button"
+        className="details-button"
+        onClick={() => setSelectedCourse(row)}
+    >
+        <List size={20} />
+    </button>
     )}
                 />
 
@@ -103,31 +104,88 @@ function ManagerCourses(){
             </main>
 
             {selectedCourse && (
-                <Modal
-                    onClose={() => setSelectedCourse(null)}
-                >
-                    <h2>{selectedCourse.Course_name}</h2>
+             <Modal
+    isOpen={selectedCourse !== null}
+    onClose={() => setSelectedCourse(null)}
+    title=""
+>
+    {selectedCourse && (
+        <div className="course-details-modal">
 
-                    <p>
-                        <strong>Course Code:</strong>{" "}
-                        {selectedCourse.Course_code}
-                    </p>
+            <div className="course-details-heading">
+                <FileText size={36} strokeWidth={1.5} />
+                <h2>Course Details</h2>
+            </div>
 
-                    <p>
-                        <strong>Trainer:</strong>{" "}
-                        {selectedCourse.Trainer}
-                    </p>
+            <div className="course-details-grid">
 
-                    <p>
-                        <strong>Validity:</strong>{" "}
-                        {selectedCourse.Validity}
-                    </p>
+                <div className="course-detail-field course-name-field">
+                    <label>Course Name</label>
+                    <input
+                        value={selectedCourse.Course_name}
+                        readOnly
+                    />
+                </div>
 
-                    <p>
-                        <strong>Mandatory For:</strong>{" "}
-                        {selectedCourse.Mandatory.join(", ")}
-                    </p>
-                </Modal>
+                <div className="course-detail-field">
+                    <label>Course Code</label>
+                    <input
+                        value={selectedCourse.Course_code}
+                        readOnly
+                    />
+                </div>
+
+                <div className="course-detail-field">
+                    <label>Trainer</label>
+                    <input
+                        value={selectedCourse.Trainer}
+                        readOnly
+                    />
+                </div>
+
+                <div className="course-detail-field">
+                    <label>Validity Duration</label>
+                    <input
+                        value={
+                            typeof selectedCourse.Validity === "number"
+                                ? `${selectedCourse.Validity} Year${selectedCourse.Validity === 1 ? "" : "s"}`
+                                : selectedCourse.Validity
+                        }
+                        readOnly
+                    />
+                </div>
+
+                <div className="course-detail-field mandatory-field">
+                    <label>Mandatory For</label>
+                    <input
+                        value={selectedCourse.Mandatory.join(", ")}
+                        readOnly
+                    />
+                </div>
+
+            </div>
+
+            <button
+                type="button"
+                className="syllabus-button"
+                onClick={() => {
+                    if (selectedCourse.Syllabus) {
+                        window.open(
+                            selectedCourse.Syllabus,
+                            "_blank",
+                            "noopener,noreferrer"
+                        );
+                    }
+                }}
+                disabled={!selectedCourse.Syllabus}
+            >
+                <span>Syllabus</span>
+                <Download size={26} />
+            </button>
+
+        </div>
+    )}
+</Modal>
             )}
 
         </div>

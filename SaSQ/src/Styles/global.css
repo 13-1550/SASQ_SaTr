@@ -1053,3 +1053,130 @@ body {
     background: none;
     color: var(--primary-green);
 }
+
+
+/*coursesmodal*/
+
+
+/* Course Details Modal */
+
+.course-details-modal {
+    padding: 10px 0 4px;
+    color: #111;
+}
+
+.course-details-heading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #08752f;
+    margin-bottom: 36px;
+}
+
+.course-details-heading h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.course-details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+}
+
+.course-detail-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+}
+
+.course-detail-field label {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.course-detail-field input {
+    width: 100%;
+    min-width: 0;
+    height: 46px;
+    padding: 0 12px;
+    border: 1px solid #a7c7ae;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 3px 5px #00000020;
+    font: inherit;
+    font-size: 16px;
+    color: #111;
+    box-sizing: border-box;
+}
+
+.course-name-field {
+    grid-column: 1;
+}
+
+.course-name-field input {
+    width: 100%;
+}
+
+.course-detail-field:nth-child(2) {
+    grid-column: 2;
+}
+
+.course-detail-field:nth-child(3) {
+    grid-column: 1;
+}
+
+.course-detail-field:nth-child(4) {
+    grid-column: 2;
+}
+
+.mandatory-field {
+    grid-column: 1 / -1;
+}
+
+.syllabus-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    min-width: 198px;
+    height: 46px;
+    margin-top: 38px;
+    padding: 0 12px;
+    border: 1px solid #a7c7ae;
+    border-radius: 12px;
+    background: #fff;
+    color: #111;
+    font: inherit;
+    font-size: 16px;
+    box-shadow: 0 3px 5px #00000020;
+    cursor: pointer;
+}
+
+.syllabus-button svg {
+    color: #08752f;
+}
+
+.syllabus-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+@media (max-width: 600px) {
+    .course-details-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .course-detail-field,
+    .course-name-field,
+    .course-detail-field:nth-child(2),
+    .course-detail-field:nth-child(3),
+    .course-detail-field:nth-child(4),
+    .mandatory-field {
+        grid-column: 1;
+    }
+}
+
