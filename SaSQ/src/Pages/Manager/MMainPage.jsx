@@ -76,7 +76,7 @@ function ManagerMain() {
 
                 <section className="employees-section">
 
-                    <div className="employees-title">
+                   
 
                         
                     <div className="employee-total">
@@ -84,20 +84,14 @@ function ManagerMain() {
                         <Card
                         label="Employees"
                         number="72"
-                        icon={<Users size={28} />}
                         numberColor="green"
                     />
+                    </div>
 
-                    </div>;
-
+                    <div className="Certificates-title">
                         <h2>Certificates Status Overview</h2>
-
-                        </div>
-
-                    
-
-
-
+                    </div>
+                      
 
                 </section>
 
@@ -110,7 +104,6 @@ function ManagerMain() {
                     <Card
                         label="Valid"
                         number="320"
-                        icon={<CheckCircle size={28} />}
                         numberColor="green"
                     />
 
@@ -118,7 +111,6 @@ function ManagerMain() {
                     <Card
                         label="Soon to Expire"
                         number="47"
-                        icon={<Clock3 size={28} />}
                         numberColor="orange"
                     />
 
@@ -126,7 +118,6 @@ function ManagerMain() {
                     <Card
                         label="Expired"
                         number="25"
-                        icon={<XCircle size={28} />}
                         numberColor="red"
                     />
 
@@ -134,7 +125,6 @@ function ManagerMain() {
                     <Card
                         label="Warnings"
                         number="12"
-                        icon={<AlertTriangle size={28} />}
                         numberColor="orange"
                     />
 
@@ -146,13 +136,7 @@ function ManagerMain() {
 
                 <section className="status-section">
 
-                    <div className="section-header">
-
-                        <div>
-                            <h2>Certificate Status Overview </h2>
-                        </div>
-
-                    </div>
+               
 
 
                     <div className="status-boxes">
