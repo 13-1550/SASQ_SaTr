@@ -190,6 +190,7 @@ body {
 
     font-size: 13px;
     color: #111111;
+    text-decoration: none;
 
     transition: background 0.2s ease;
 }
@@ -224,7 +225,7 @@ body {
     position: absolute;
     left: 0;
     top: 0;
-    width: 6px;
+    width: 5px;
     height: 100%;
     background: var(--secondary-green);
     border-radius: 0 0 0 0;
@@ -251,6 +252,7 @@ body {
 .status-warning {
     background: #fff0df;
     color: #F29d38;
+    border: #f29e38b5 1px solid;
 }
 
 .status-expired {
@@ -263,6 +265,17 @@ body {
     color: var(--text-secondary);
 }
 
+.status-active{
+    background: #d9f7df;
+    color:var(--secondary-green);
+    border: #08752e9a 1px solid;
+}
+
+.status-inactive{
+    background: #f4b3b3c7;
+    color: #A40000;
+    border: #a40000b3 1px solid;
+}
 /* Table */
 
 
@@ -851,12 +864,20 @@ body {
 
 .dashboard-cards{
     display: flex;
-    flex-direction: row;
-    gap: 10px;
+    flex-direction: column;
+    gap: 5px;
     padding: 20px;
     width: 20%;
-    color: #000000;
+    height: 20%;
+    font-size: 14px;
   
+}
+.table-title{
+    margin-top: 10px ;
+    background:var(--secondary-green);
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px 10px 0 0;
 }
 /*employee card*/
 .employee-total .card{
@@ -877,52 +898,590 @@ body {
     margin-left: 20px;
     margin-top: 10px;
 }
-
-
-.status-box {
+.status-boxes {
     display: flex;
 
     flex-direction: column;
 
-    align-items: center;
+    align-items: left;
 
     justify-content: center;
 
-    min-height:1px;
+     height: 100%;
 
     border-radius: 8px;
 
-    padding: 1px;
+    padding: 10px;
 
     box-sizing: border-box;
-  
+    gap: 15px;
+     border-left: 2px solid #d1d1d1;    
+    font-size: 14px;
 }
 
 .status-box-green {
     background-color: var(--secondary-green);
-    color: #060606;
-    margin-left: 20px;
-    width: 100%;
+    color: #ffffff;
+    width: 90%;
+    padding: 8px;
+    border-radius: 0px 8px 8px 0px;
+    
     
 }
 .status-box-orange {
     background-color:#F2C738;
     color: #060606;
-    margin-left: 20px;
-    width:75%;
+      width: 40%;
+    padding: 8px;
+    border-radius: 0px 8px 8px 0px; 
 }
 .status-box-red {
     background-color: #910303;
-    color: #060606;
-    margin-left: 20px;
-    width: 50%;
+     color: #ffffff;
+    width: 20%;
+    padding: 8px;
+    border-radius: 0px 8px 8px 0px;
+   
 }
 .status-box-gray {
     background-color: #B7B7B7;
-    color: #060606;
-    margin-left: 20px;
-    width: 25%;
+  color: #ffffff;
+    width: 15%;
+    padding: 8px;
+    border-radius: 0px 8px 8px 0px;
+    
+
+    
 }
+
+/* Manager Main */
+.dashboard-content {
+    flex: 1;
+    min-width: 0;
+    width: 0;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.employee-total .card{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    width: 10%;
+}
+
+.dashboard-cards{
+    display: flex;
+    gap: 15px;
+    width: 80%;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    flex-direction: row;
+    
+
+}
+.dashboard-cards .card {
+    flex: 1;
+    padding: 10px 20px;
+    font-size: 14px;
+    height: 30%;
+    width: 20%;
+}
+
+.dashboard-cards .card .card-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+    font-size: 10px;
+}
+
+.dashboard-cards .card .card-content .card-number {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.dashboard-cards .card .card-content .card-label {
+    font-size: 10px;
+    margin: 0;
+}
+
+/*\Manager courses*/
+.ManagerCourses{
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    background: var(--background);
+    overflow-x: hidden;
+    gap:10px;
+
+}
+
+.ManagerCourses .CoursesFilters select{
+    gap:15px;
+    display: inline;
+    margin-bottom: 15px;
+    margin-right: 18px;
+    margin-bottom: 15px;
+    padding: 5px 19px 5px 10px;
+    border: transparent;
+    border-radius: 35px;
+    background-color: white;
+    box-shadow: 0 2px 1px rgba(0, 0, 0, 0.15);
+    font-size: 14px;
+    color: #222;
+    outline: none;
+    cursor: pointer;border-radius: 10px;
+
+
+}
+
+.ManagerCourses {
+    display: flex;
+    min-height: 100vh;
+    background: #f7f7f7;
+}
+
+.MCourses-content {
+    flex: 1;
+    padding: 45px 55px;
+}
+
+.MCourses-content h1 {
+    margin: 0 0 25px 0;
+    font-size: 28px;
+    font-weight: 500;
+    color: #111;
+}
+
+/* FILTERS */
+
+.CoursesFilters {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.course-filter-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 35px;
+}
+
+.courseFilter-row select {
+    width: 165px;
+    height: 38px;
+
+    padding: 0 12px;
+
+    background: white;
+    border: none;
+    border-radius: 10px;
+
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+
+    font-size: 14px;
+    color: #777;
+
+    cursor: pointer;
+}
+
+.course-filter-row select:focus {
+    outline: none;
+    
+}
+
+.details-button{
+    border:none;
+    background: none;
+    color: var(--primary-green);
+}
+
+
+/*coursesmodal*/
+
+
+/* Course Details Modal */
+
+.course-details-modal {
+    padding: 10px 0 4px;
+    color: #111;
+}
+
+.course-details-heading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #08752f;
+    margin-bottom: 36px;
+}
+
+.course-details-heading h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.course-details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+}
+
+.course-detail-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+}
+
+.course-detail-field label {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.course-detail-field input {
+    width: 100%;
+    min-width: 0;
+    height: 46px;
+    padding: 0 12px;
+    border: 1px solid #a7c7ae;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 3px 5px #00000020;
+    font: inherit;
+    font-size: 16px;
+    color: #111;
+    box-sizing: border-box;
+}
+
+.course-name-field {
+    grid-column: 1;
+}
+
+.course-name-field input {
+    width: 100%;
+}
+
+.course-detail-field:nth-child(2) {
+    grid-column: 2;
+}
+
+.course-detail-field:nth-child(3) {
+    grid-column: 1;
+}
+
+.course-detail-field:nth-child(4) {
+    grid-column: 2;
+}
+
+.mandatory-field {
+    grid-column: 1 / -1;
+}
+
+.syllabus-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    min-width: 198px;
+    height: 46px;
+    margin-top: 38px;
+    padding: 0 12px;
+    border: 1px solid #a7c7ae;
+    border-radius: 12px;
+    background: #fff;
+    color: #111;
+    font: inherit;
+    font-size: 16px;
+    box-shadow: 0 3px 5px #00000020;
+    cursor: pointer;
+}
+
+.syllabus-button svg {
+    color: #08752f;
+}
+
+.syllabus-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+@media (max-width: 600px) {
+    .course-details-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .course-detail-field,
+    .course-name-field,
+    .course-detail-field:nth-child(2),
+    .course-detail-field:nth-child(3),
+    .course-detail-field:nth-child(4),
+    .mandatory-field {
+        grid-column: 1;
+    }
+}
+
+
+/*Manager_Employees*/
+
+
+
+.ManagerEmployees {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+    background: #fff;
+    color: #222;
+    box-sizing: border-box;
+}
+
+.MEmployees-content {
+    flex: 1;
+    min-width: 0;
+    padding: 28px 32px;
+    box-sizing: border-box;
+}
+
+
+.Employees-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 28px;
+    padding-top: 4px;
+}
+
+.Employees-header h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: #222;
+}
+
+
+
+.EmployeesFilters {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+    margin-bottom: 20px;
+}
+
+
+.EmployeesFilters > *:first-child {
+    width: 100%;
+    min-width: 0;
+}
+.EmployeesFilters input {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 44px;
+    padding: 10px 14px;
+    border: 1px solid #dedfe3;
+    border-radius: 9px;
+    background: #fff;
+    color: #333;
+    font-size: 15px;
+    outline: none;
+}
+
+.EmployeesFilters input:focus {
+    border-color: #9aa5b5;
+    box-shadow: 0 0 0 3px rgba(100, 120, 150, 0.1);
+}
+
+
+.employees-sort {
+    align-self: flex-end;
+    min-width: 165px;
+    padding: 10px 32px 10px 12px;
+    border: 1px solid #dedfe3;
+    border-radius: 8px;
+    background: #fff;
+    color: #333;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+}
+
+.employees-sort:focus {
+    border-color: #9aa5b5;
+}
+
+
+
+.ManagerEmployees .table-container {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    border: 1px solid #e1e3e7;
+    border-radius: 10px;
+    background: #fff;
+    box-sizing: border-box;
+}
+
+.ManagerEmployees .table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    text-align: left;
+}
+
+/* Table headings */
+.ManagerEmployees .table thead {
+    background: #f7f8fa;
+}
+
+.ManagerEmployees .table th {
+    padding: 17px 14px;
+    color: #333;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: left;
+    white-space: nowrap;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+
+.ManagerEmployees .table td {
+    padding: 17px 14px;
+    color: #333;
+    font-size: 14px;
+    line-height: 1.45;
+    vertical-align: middle;
+    overflow-wrap: break-word;
+    border-bottom: 1px solid #eceef1;
+}
+
+.ManagerEmployees .table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.ManagerEmployees .table tbody tr {
+    transition: background-color 0.15s ease;
+}
+
+.ManagerEmployees .table tbody tr:hover {
+    background-color: #fafbfc;
+}
+
+.ManagerEmployees .table th:nth-child(1),
+.ManagerEmployees .table td:nth-child(1) {
+    width: 5%;
+}
+
+.ManagerEmployees .table th:nth-child(2),
+.ManagerEmployees .table td:nth-child(2) {
+    width: 17%;
+}
+
+.ManagerEmployees .table th:nth-child(3),
+.ManagerEmployees .table td:nth-child(3) {
+    width: 15%;
+}
+
+.ManagerEmployees .table th:nth-child(4),
+.ManagerEmployees .table td:nth-child(4) {
+    width: 17%;
+}
+
+.ManagerEmployees .table th:nth-child(5),
+.ManagerEmployees .table td:nth-child(5) {
+    width: 19%;
+}
+
+.ManagerEmployees .table th:nth-child(6),
+.ManagerEmployees .table td:nth-child(6) {
+    width: 15%;
+}
+
+.ManagerEmployees .table th:nth-child(7),
+.ManagerEmployees .table td:nth-child(7) {
+    width: 12%;
+}
+
+.ManagerEmployees .table-empty {
+    padding: 30px 16px;
+    text-align: center;
+    color: #888;
+}
+
+
+.ManagerEmployees .employee-view-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    border: none;
+    border-radius: 50%;
+    background: transparent;
+    color: #08752b;
+    cursor: pointer;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.ManagerEmployees .employee-view-button:hover {
+    background: transparent;
+    color: #034d1b;
+    transform: scale(1.12);
+}
+
+.ManagerEmployees .employee-view-button svg {
+    width: 17px;
+    height: 17px;
+    stroke-width: 2;
+}
+
+.ManagerEmployees .table td {
+    border-bottom: 1px solid #d0d0d0;
+}
+
+.ManagerEmployees .table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+.ManagerEmployees .status-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1;
+    white-space: nowrap;
+    border: none;
+    vertical-align: middle;
+    text-align: center;
+}
+.ManagerEmployees .table th:nth-child(6),
+.ManagerEmployees .table td:nth-child(6) {
+    text-align: center;
+    vertical-align: middle;
+}
+
+@media (max-width: 768px) {
+    .MEmployees-content {
+        padding: 22px 16px;
+    }
+
+    .Employees-header h1 {
+        font-size: 23px;
+    }
+
+    .ManagerEmployees .table {
+        min-width: 760px;
+    }
+}
+
 
 /* Main page  for Employee */
 .status-active {

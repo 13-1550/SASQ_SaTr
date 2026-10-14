@@ -74,142 +74,118 @@ function ManagerMain() {
 
                 {/* Employees Summary */}
 
-                <section className="employees-section">
+                
+<section className="employees-section">
 
-                   
+    <div className="employees-title">
 
-                        
-                    <div className="employee-total">
-
-                        <Card
-                        label="Employees"
-                        number="72"
-                        numberColor="green"
-                    />
-                    </div>
-
-                    <div className="Certificates-title">
-                        <h2>Certificates Status Overview</h2>
-                    </div>
-                      
-
-                </section>
-
-
-
-                {/* Certificate Summary Cards */}
-
-                <section className="dashboard-cards">
-
-                    <Card
-                        label="Valid"
-                        number="320"
-                        numberColor="green"
-                    />
-
-
-                    <Card
-                        label="Soon to Expire"
-                        number="47"
-                        numberColor="orange"
-                    />
-
-
-                    <Card
-                        label="Expired"
-                        number="25"
-                        numberColor="red"
-                    />
-
-
-                    <Card
-                        label="Warnings"
-                        number="12"
-                        numberColor="orange"
-                    />
-
-                </section>
-
-
-
-                {/* Certificate Status */}
-
-                <section className="status-section">
-
-               
-
-
-                    <div className="status-boxes">
-
-                        <div className="status-box status-box-green">
-
-                            <span>Valid</span>
-
-                            <strong>320</strong>
-
-                        </div>
-
-
-                        <div className="status-box status-box-orange">
-
-                            <span>Soon to Expire</span>
-
-                            <strong>47</strong>
-
-                        </div>
-
-
-                        <div className="status-box status-box-red">
-
-                            <span>Expired</span>
-
-                            <strong>25</strong>
-
-                        </div>
-
-
-                        <div className="status-box status-box-gray">
-
-                            <span>Pending</span>
-
-                            <strong>12</strong>
-
-                        </div>
-
-                    </div>
-
-                </section>
-
-
-
-                {/* Flagged Employees Table */}
-
-                <section className="flagged-section">
-
-                    <div className="table-title">
-                        Flagged Employees
-                    </div>
-
-
-                    <Table
-                        className="table"
-                        headers={headers}
-                        data={data}
-                    />
-
-                </section>
-
-
-               
-
-
-            </main>
-
+        <div className="employee-total">
+            <Card
+                label="Employees"
+                number="72"
+                icon={<Users size={28} />}
+                numberColor="green"
+            />
         </div>
-    );
+
+        <div className="Certificates-title">
+            <h2>Certificates Status Overview</h2>
+        </div>
+
+    </div>
+
+</section>
+
+{/* Certificate Summary Cards */}
+
+<section className="dashboard-cards">
+
+    <Card
+        label="Valid"
+        number="320"
+        icon={<CheckCircle size={28} />}
+        numberColor="green"
+    />
+
+    <Card
+        label="Soon to Expire"
+        number="47"
+        icon={<Clock3 size={28} />}
+        numberColor="orange"
+    />
+
+    <Card
+        label="Expired"
+        number="25"
+        icon={<XCircle size={28} />}
+        numberColor="red"
+    />
+
+    <Card
+        label="Warnings"
+        number="12"
+        icon={<AlertTriangle size={28} />}
+        numberColor="orange"
+    />
+
+</section>
+
+{/* Certificate Status */}
+
+<section className="status-section">
+
+    <div className="section-header">
+        <div>
+            <h2>Certificate Status Overview</h2>
+        </div>
+    </div>
+
+    <div className="status-boxes">
+
+        <div className="status-box status-box-green">
+            <strong>320</strong>
+            <span>Valid</span>
+        </div>
+
+        <div className="status-box status-box-orange">
+            <strong>47</strong>
+            <span>Soon to Expire</span>
+        </div>
+
+        <div className="status-box status-box-red">
+            <strong>25</strong>
+            <span>Expired</span>
+        </div>
+
+        <div className="status-box status-box-gray">
+            <strong>12</strong>
+            <span>Pending</span>
+        </div>
+
+    </div>
+
+</section>
+
+{/* Flagged Employees Table */}
+
+<section className="flagged-section">
+
+    <div className="table-title">
+        Flagged Employees
+    </div>
+
+    <Table
+        className="table"
+        headers={headers}
+        data={data}
+    />
+
+</section>
+
+</main>
+
+</div>
+);
 }
 
-
 export default ManagerMain;
-
-               

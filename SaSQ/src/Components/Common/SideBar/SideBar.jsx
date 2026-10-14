@@ -1,4 +1,6 @@
 import React from "react";
+import { NavLink, useLocation } from "react-router-dom";
+
 import {
     House,
     Upload,
@@ -9,39 +11,40 @@ import {
     UserCog,
     Logs
 } from "lucide-react";
+
 import logo from "../../../assets/Logo_of_Saudia.svg.webp";
 
-const Sidebar = ({ role, activePage }) => {
+const Sidebar = ({ role }) => {
 
     const menus = {
         employee: [
-            { label: "Main page", icon: House },
-            { label: "Upload Certificate", icon: Upload },
-            { label: "Courses", icon: BriefcaseBusiness },
-            { label: "Certificates", icon: LibraryBig },
+            { label: "Main page", icon: House, path: "/employee/main"},
+            { label: "Upload Certificate", icon: Upload, path: "/employee/upload" },
+            { label: "Courses", icon: BriefcaseBusiness, path: "/employee/courses" },
+            { label: "Certificates", icon: LibraryBig, path: "/employee/certificates" },
         ],
 
         coordinator: [
-            { label: "Main page", icon: House },
-            { label: "Courses", icon: BriefcaseBusiness },
-            { label: "Employees", icon: Users },
-            { label: "Reports", icon: ChartNoAxesColumn },
+            { label: "Main page", icon: House, path: "/coordinator/main"},
+            { label: "Courses", icon: BriefcaseBusiness, path: "/coordinator/courses" },
+            { label: "Employees", icon: Users, path: "/coordinator/employees" },
+            { label: "Reports", icon: ChartNoAxesColumn, path: "/coordinator/reports" },
         ],
 
         manager: [
-            { label: "Main page", icon: House },
-            { label: "Employees", icon: Users },
-            { label: "Courses", icon: BriefcaseBusiness },
-            { label: "Reports", icon: ChartNoAxesColumn },
+            { label: "Main page", icon: House, path: "/manager/main", end: true },
+            { label: "Employees", icon: Users, path: "/manager/employees" },
+            { label: "Courses", icon: BriefcaseBusiness, path: "/manager/courses" },
+            { label: "Reports", icon: ChartNoAxesColumn, path: "/manager/reports" },
         ],
 
         admin: [
-            { label: "Main page", icon: House },
-            { label: "Users", icon: Users },
-            { label: "User Management", icon: UserCog },
-            { label: "Courses", icon: BriefcaseBusiness },
-            { label: "Reports", icon: ChartNoAxesColumn },
-            { label: "Audit Log", icon: Logs },
+            { label: "Main page", icon: House, path: "/admin/main"},
+            { label: "Users", icon: Users, path: "/admin/users" },
+            { label: "User Management", icon: UserCog, path: "/admin/user-management" },
+            { label: "Courses", icon: BriefcaseBusiness, path: "/admin/courses" },
+            { label: "Reports", icon: ChartNoAxesColumn, path: "/admin/reports" },
+            { label: "Audit Log", icon: Logs, path: "/admin/audit-log" },
         ],
     };
 
@@ -56,22 +59,32 @@ const Sidebar = ({ role, activePage }) => {
 
             <nav className="sidebar-menu">
 
-                {menuItems.map((item) => (
-                    <div
-                        key={item.label}
-                        className={`sidebar-item ${
-                            activePage === item.label ? "active" : ""
-                        }`}
-                    >
-                        <span className="sidebar-icon">
-                              <item.icon size={22} />
+                {menuItems.map((item) => {
+
+                    const Icon = item.icon;
+                    const isActive = item.end
+                        ? location.pathname === item.path
+                        : location.pathname.startsWith(item.path);
+
+                    return (
+                        <NavLink
+                            key={item.label}
+                            to={item.path}  
+                            end={item.end==true}
+                            className={`sidebar-item ${
+                                isActive ? "active" : ""
+                            }`}
+                        >
+                            <span className="sidebar-icon">
+                                <Icon size={22} />
                             </span>
 
-                        <span className="sidebar-label">
-                            {item.label}
-                        </span>
-                    </div>
-                ))}
+                            <span className="sidebar-label">
+                                {item.label}
+                            </span>
+                        </NavLink>
+                    );
+                })}
 
             </nav>
 
