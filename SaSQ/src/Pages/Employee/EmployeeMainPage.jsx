@@ -1,3 +1,4 @@
+
 import { useState, useEffect, useRef } from "react";
 import {
   Award,
@@ -7,27 +8,26 @@ import {
   CircleUser,
   AlertCircle,
   XCircle,
-  PackagePlus} from "lucide-react";
+  PackagePlus
+} from "lucide-react";
+
 import Sidebar from "../../Components/Common/Sidebar/Sidebar";
 import Button from "../../Components/Common/Button/Button";
 import Card from "../../Components/Common/Card/Card";
 import Table from "../../Components/Common/Table/Table";
 import StatusBadge from "../../Components/Common/StatusBadge/StatusBadge";
 
-
-//  Notification icons 
+// Notification icons
 const notificationIcons = {
   warning: AlertCircle,
   danger: XCircle,
   info: PackagePlus
 };
 
-//  Header
+// Header
 function PageHeader(props) {
-    /* isNotificationsOpen is a corrent value of the Window, setIsNotificationsOpen for change value */
   const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
   const [isRead, setIsRead] = useState(false);
-  /* useRef for click inside and outsidand window */
   const notificationRef = useRef(null);
 
   const {
@@ -157,7 +157,7 @@ function PageHeader(props) {
   );
 }
 
-//  Circle with the percentage 
+// Circle with the percentage
 function DonutChart(props) {
   const value = props.value;
 
@@ -191,7 +191,7 @@ function DonutChart(props) {
   );
 }
 
-//  Course Data 
+// Course Data
 const courseData = [
   {
     course: "Safety Management System",
@@ -211,8 +211,7 @@ const courseData = [
   }
 ];
 
-//  Notification Data 
-
+// Notification Data
 const notificationData = [
   {
     title: "Certificate expiring in 30 days",
@@ -236,7 +235,7 @@ const notificationData = [
   }
 ];
 
-//  Recent Activity Data 
+// Recent Activity Data
 const recentActivityData = [
   { title: "Certificate Uploaded", time: "Today · 9:05 AM" },
   { title: "Department Uploaded", time: "Today · 8:45 AM" },
@@ -244,7 +243,7 @@ const recentActivityData = [
   { title: "Certificate Uploaded", time: "Today · 8:45 AM" }
 ];
 
-// The Page 
+// The Page
 function EmployeeMainPage() {
   return (
     <div className="dashboard-page employee-dashboard">
@@ -316,6 +315,7 @@ function EmployeeMainPage() {
             <Table
               headers={["Course", "Status"]}
               data={courseData}
+              fields={["course", "status"]}
               className="list-table course-status-table"
             />
           </div>
@@ -324,8 +324,9 @@ function EmployeeMainPage() {
             <h2 className="panel-title">Recent Activity</h2>
 
             <Table
-              headers={[]}
+              headers={["Activity", "Time"]}
               data={recentActivityData}
+              fields={["title", "time"]}
               className="list-table activity-table"
             />
           </div>
