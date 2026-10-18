@@ -113,7 +113,8 @@ function CoursesPage() {
 
     return (
         <div className="dashboard-page employee-dashboard">
-            <Sidebar role="employee" activePage="Courses" />
+
+            <Sidebar role="employee"/>
 
             <main className="dashboard-content">
                 {/* Page Header */}
