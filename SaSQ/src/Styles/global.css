@@ -2462,3 +2462,550 @@ body {
         flex-direction: column;
     }
 }
+
+/* Employees Record for Traning Coordinator */
+
+.coord-page {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    background: var(--background);
+    overflow-x: hidden;
+}
+ 
+.coord-content {
+    flex: 1;
+    min-width: 0;
+    padding: 0 24px 24px;
+    box-sizing: border-box;
+}
+ 
+/* Page title is black like the design */
+.coord-page .page-header-title {
+    color: var(--text-primary);
+    font-size: 22px;
+}
+ 
+/* Green icon color for the success notification */
+.notification-popup-icon.success {
+    background: #d9f7df;
+    color: var(--secondary-green);
+}
+ 
+ 
+/* ---------- Tables inside the page ---------- */
+ 
+.coord-page .table-container {
+    border-radius: 10px;
+}
+ 
+.coord-page .table {
+    width: 100%;
+    margin-left: 0;
+}
+ 
+.coord-page .table th {
+    padding: 12px 14px;
+    font-size: 13px;
+    white-space: nowrap;
+}
+ 
+.coord-page .table td {
+    padding: 12px 14px;
+    font-size: 13px;
+}
+ 
+/* Hide the "Details" heading above the eye and pencil icons */
+.coord-records-table .table th:last-child {
+    font-size: 0;
+}
+ 
+/* Expired status shows correctly inside this page */
+.coord-page .status-expired {
+    background: #ffe1e1;
+    color: #bb271a;
+}
+ 
+ 
+/* ---------- Search and sort bar ---------- */
+ 
+.coord-toolbar {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+ 
+.coord-search {
+    position: relative;
+    width: 260px;
+    max-width: 100%;
+}
+ 
+.coord-search .input {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 9px 12px 9px 34px;
+}
+ 
+.coord-search-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #777777;
+    pointer-events: none;
+}
+ 
+.coord-sort {
+    width: 150px;
+    padding: 9px 12px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--white);
+    color: var(--text-secondary);
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+}
+ 
+.coord-sort:focus {
+    border-color: var(--secondary-green);
+}
+ 
+ 
+/* ---------- Eye and pencil icons ---------- */
+ 
+.coord-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+ 
+.coord-icon-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    border: none;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--secondary-green);
+    cursor: pointer;
+}
+ 
+.coord-icon-btn:hover {
+    background: #e8f5eb;
+}
+ 
+.coord-icon-btn-edit {
+    color: #e0a83e;
+}
+ 
+ 
+/* ---------- Employee details page ---------- */
+ 
+.coord-back-row {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
+ 
+.coord-profile {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+ 
+.coord-profile-top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+ 
+.coord-profile-avatar {
+    flex-shrink: 0;
+    color: var(--text-secondary);
+}
+ 
+.coord-profile-text {
+    flex: 1;
+    min-width: 0;
+}
+ 
+.coord-profile-name {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 700;
+}
+ 
+.coord-profile-sub {
+    margin: 2px 0 0;
+    font-size: 10px;
+    color: var(--text-secondary);
+}
+ 
+.coord-info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px 16px;
+}
+ 
+.coord-info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+}
+ 
+.coord-info-label {
+    font-size: 11px;
+    color: var(--text-secondary);
+}
+ 
+.coord-info-value {
+    font-size: 12px;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+ 
+.coord-section-title {
+    margin: 24px 0 10px;
+    font-size: 16px;
+    font-weight: 700;
+}
+ 
+ 
+/* ---------- Courses tables ---------- */
+ 
+.coord-course-table .table th,
+.coord-course-table .table td {
+    text-align: center;
+}
+ 
+.coord-course-table .table th:first-child,
+.coord-course-table .table td:first-child {
+    text-align: left;
+}
+ 
+.coord-check {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+}
+ 
+.coord-check-yes {
+    background: #d9f7df;
+    color: var(--secondary-green);
+}
+ 
+.coord-check-no {
+    background: #ffe1e1;
+    color: #bb271a;
+}
+ 
+.coord-doc-icon {
+    color: #d9483d;
+}
+ 
+.coord-feedback-icon {
+    color: var(--secondary-green);
+}
+ 
+ 
+/* ---------- Edit window ---------- */
+ 
+.coord-modal-title {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+ 
+.coord-modal-subtitle {
+    margin: 0 0 16px;
+    font-size: 12px;
+    color: var(--secondary-green);
+}
+ 
+.coord-form-section {
+    margin: 0 0 8px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+ 
+.coord-form-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px 16px;
+    margin-bottom: 18px;
+}
+ 
+.coord-form-grid .input {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+}
+ 
+.coord-form-grid label {
+    font-size: 12px;
+}
+ 
+.coord-modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 8px;
+}
+ 
+ 
+/* ---------- Small screens ---------- */
+ 
+@media (max-width: 900px) {
+    .coord-info-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+ 
+@media (max-width: 600px) {
+    .coord-content {
+        padding: 0 12px 16px;
+    }
+ 
+    .coord-info-grid,
+    .coord-form-grid {
+        grid-template-columns: 1fr;
+    }
+ 
+    .coord-search,
+    .coord-sort {
+        width: 100%;
+    }
+}
+ 
+/* Coordinator Main Page */
+
+.cmain-page {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    background: var(--background);
+    overflow-x: hidden;
+}
+
+.cmain-content {
+    flex: 1;
+    min-width: 0;
+    padding: 0 24px 24px;
+    box-sizing: border-box;
+}
+
+
+/* ---------- Top row (3 big cards) ---------- */
+
+.cmain-top-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.cmain-card-wrap {
+    flex: 1;
+    min-width: 200px;
+}
+
+.cmain-card-wrap .card {
+    margin: 0;
+    padding: 14px 18px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+}
+
+.cmain-card-wrap .card-label {
+    font-size: 18px;
+    color: var(--text-secondary);
+}
+
+.cmain-card-wrap .card-content {
+    justify-content: space-between;
+    margin-top: 6px;
+}
+
+.cmain-card-wrap .card-number {
+    font-size: 28px;
+}
+
+/* the Pending / Complete card */
+.cmain-card-wrap .split-card {
+    height: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+}
+
+.cmain-card-wrap .split-half {
+    flex: 1;
+}
+
+
+/* ---------- Bottom area ---------- */
+
+.cmain-bottom {
+    display: grid;
+    grid-template-columns: 170px minmax(0, 1fr);
+    gap: 16px;
+    align-items: start;
+}
+
+.cmain-right {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-width: 0;
+}
+
+
+/* ---------- Quick Actions ---------- */
+
+.cmain-quick-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.cmain-quick-actions .panel-title {
+    margin-bottom: 4px;
+}
+
+.cmain-action .btn {
+    width: 100%;
+    height: 96px;
+    padding: 8px;
+    border: 1px solid var(--secondary-green);
+    border-radius: 8px;
+    background: var(--white);
+    color: var(--secondary-green);
+    font-size: 18px;
+    font-weight: 400;
+    text-align: center;
+    box-shadow: none;
+}
+
+.cmain-action .btn:hover {
+    background: #e3f1e8;
+}
+
+
+/* ---------- 4 small cards ---------- */
+
+.cmain-small-cards {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.cmain-small-cards .card {
+    margin: 0;
+    min-width: 0;
+    padding: 12px 14px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+}
+
+.cmain-small-cards .card-label {
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+.cmain-small-cards .card-content {
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.cmain-small-cards .card-number {
+    font-size: 22px;
+}
+
+
+/* ---------- Pending Action list ---------- */
+
+.cmain-page .table {
+    width: 100%;
+    margin-left: 0;
+}
+
+.cmain-pending-table.table-container {
+    border: none;
+    background: transparent;
+}
+
+/* hide the table headings, the design has none */
+.cmain-pending-table .table thead {
+    display: none;
+}
+
+.cmain-pending-table .table {
+    border-collapse: separate;
+    border-spacing: 0 8px;
+}
+
+.cmain-pending-table .table td {
+    height: 56px;
+    padding: 0 16px;
+    border-bottom: none;
+    color: var(--text-primary);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* grey background on every second row */
+.cmain-pending-table .table tbody tr:nth-child(odd) td {
+    background: #f1f3f2;
+}
+
+.cmain-pending-table .table td:first-child {
+    border-radius: 8px 0 0 8px;
+}
+
+/* the time on the right */
+.cmain-pending-table .table td:last-child {
+    width: 110px;
+    padding-top: 8px;
+    border-radius: 0 8px 8px 0;
+    font-size: 10px;
+    text-align: right;
+    vertical-align: top;
+    white-space: nowrap;
+}
+
+
+/* ---------- Small screens ---------- */
+
+@media (max-width: 1000px) {
+    .cmain-small-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 800px) {
+    .cmain-bottom {
+        grid-template-columns: 1fr;
+    }
+
+    .cmain-quick-actions {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .cmain-quick-actions .panel-title {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 600px) {
+    .cmain-content {
+        padding: 0 12px 16px;
+    }
+}
