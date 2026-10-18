@@ -3009,3 +3009,244 @@ body {
         padding: 0 12px 16px;
     }
 }
+ 
+/* main page for admin*/
+.cmain-page {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    background: var(--background);
+    overflow-x: hidden;
+}
+ 
+.cmain-content {
+    flex: 1;
+    min-width: 0;
+    padding: 0 24px 24px;
+    box-sizing: border-box;
+}
+ 
+ 
+/* ---------- Top row (3 big cards) ---------- */
+ 
+.cmain-top-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+ 
+.cmain-card-wrap {
+    flex: 1;
+    min-width: 200px;
+}
+ 
+.cmain-card-wrap .card {
+    margin: 0;
+    padding: 14px 18px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+}
+ 
+.cmain-card-wrap .card-label {
+    font-size: 18px;
+    color: var(--text-secondary);
+}
+ 
+.cmain-card-wrap .card-content {
+    justify-content: space-between;
+    margin-top: 6px;
+}
+ 
+.cmain-card-wrap .card-number {
+    font-size: 28px;
+}
+ 
+/* the Pending / Complete card */
+.cmain-card-wrap .split-card {
+    height: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+}
+ 
+.cmain-card-wrap .split-half {
+    flex: 1;
+}
+ 
+ 
+/* ---------- Bottom area ---------- */
+ 
+.cmain-bottom {
+    display: grid;
+    grid-template-columns: 170px minmax(0, 1fr);
+    gap: 16px;
+    align-items: start;
+}
+ 
+.cmain-right {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-width: 0;
+}
+ 
+ 
+/* ---------- Quick Actions ---------- */
+ 
+.cmain-quick-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+ 
+.cmain-quick-actions .panel-title {
+    margin-bottom: 4px;
+}
+ 
+.cmain-action .btn {
+    width: 100%;
+    height: 96px;
+    padding: 8px;
+    border: 1px solid var(--secondary-green);
+    border-radius: 8px;
+    background: var(--white);
+    color: var(--secondary-green);
+    font-size: 18px;
+    font-weight: 400;
+    text-align: center;
+    box-shadow: none;
+}
+ 
+.cmain-action .btn:hover {
+    background: #e3f1e8;
+}
+ 
+ 
+/* ---------- 4 small cards ---------- */
+ 
+.cmain-small-cards {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+}
+ 
+.cmain-small-cards .card {
+    margin: 0;
+    min-width: 0;
+    padding: 12px 14px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+}
+ 
+.cmain-small-cards .card-label {
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+ 
+.cmain-small-cards .card-content {
+    justify-content: space-between;
+    margin-top: 10px;
+}
+ 
+.cmain-small-cards .card-number {
+    font-size: 22px;
+}
+ 
+ 
+/* ---------- Pending Action list ---------- */
+ 
+.cmain-page .table {
+    width: 100%;
+    margin-left: 0;
+}
+ 
+.cmain-pending-table.table-container {
+    border: none;
+    background: transparent;
+}
+ 
+/* hide the table headings, the design has none */
+.cmain-pending-table .table thead {
+    display: none;
+}
+ 
+.cmain-pending-table .table {
+    border-collapse: separate;
+    border-spacing: 0 8px;
+}
+ 
+.cmain-pending-table .table td {
+    height: 56px;
+    padding: 0 16px;
+    border-bottom: none;
+    color: var(--text-primary);
+    font-size: 13px;
+    font-weight: 700;
+}
+ 
+/* grey background on every second row */
+.cmain-pending-table .table tbody tr:nth-child(odd) td {
+    background: #f1f3f2;
+}
+ 
+.cmain-pending-table .table td:first-child {
+    border-radius: 8px 0 0 8px;
+}
+ 
+/* the time on the right */
+.cmain-pending-table .table td:last-child {
+    width: 110px;
+    padding-top: 8px;
+    border-radius: 0 8px 8px 0;
+    font-size: 10px;
+    text-align: right;
+    vertical-align: top;
+    white-space: nowrap;
+}
+ 
+ 
+/* ---------- Small screens ---------- */
+ 
+@media (max-width: 1000px) {
+    .cmain-small-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+ 
+@media (max-width: 800px) {
+    .cmain-bottom {
+        grid-template-columns: 1fr;
+    }
+ 
+    .cmain-quick-actions {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+ 
+    .cmain-quick-actions .panel-title {
+        grid-column: 1 / -1;
+    }
+}
+ 
+@media (max-width: 600px) {
+    .cmain-content {
+        padding: 0 12px 16px;
+    }
+}
+ 
+ 
+/* Pending Action and Recent Activity side by side */
+.cmain-lists {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+ 
+.cmain-lists .panel {
+    min-width: 0;
+}
+ 
+/* Under one another on small screens */
+@media (max-width: 1000px) {
+    .cmain-lists {
+        grid-template-columns: 1fr;
+    }
+}
+ 
