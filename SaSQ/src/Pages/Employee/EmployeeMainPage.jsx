@@ -16,7 +16,7 @@ import Button from "../../Components/Common/Button/Button";
 import Card from "../../Components/Common/Card/Card";
 import Table from "../../Components/Common/Table/Table";
 import StatusBadge from "../../Components/Common/StatusBadge/StatusBadge";
-
+import { useNavigate } from "react-router-dom";
 // Notification icons
 const notificationIcons = {
   warning: AlertCircle,
@@ -245,10 +245,11 @@ const recentActivityData = [
 
 // The Page
 function EmployeeMainPage() {
+const navigate = useNavigate(); 
   return (
     <div className="dashboard-page employee-dashboard">
-      <Sidebar role="employee" activePage="Main page" />
-
+      <Sidebar role="employee" label="Main page" />
+       
       <main className="dashboard-content">
         <PageHeader
           title="Main page"
@@ -268,7 +269,7 @@ function EmployeeMainPage() {
 
             <div className="quick-actions">
               <div className="quick-action">
-                <Button type="white">
+                <Button type="white" onClick={() => navigate("/employee/courses")}>
                   <span className="quick-action-label">Courses</span>
                   <span className="quick-action-icon">
                     <Award size={24} />

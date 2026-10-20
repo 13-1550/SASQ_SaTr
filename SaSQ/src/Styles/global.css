@@ -954,277 +954,258 @@ body {
     
 }
 
-/* Manager Main */
-.dashboard-content {
-    flex: 1;
-    min-width: 0;
-    width: 0;
-    padding: 10px;
-    box-sizing: border-box;
-}
-.employee-total .card{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    padding: 10px 20px;
-    margin-bottom: 20px;
-    width: 10%;
-}
 
-.dashboard-cards{
-    display: flex;
-    gap: 15px;
-    width: 80%;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    flex-direction: row;
-    
-
-}
-.dashboard-cards .card {
-    flex: 1;
-    padding: 10px 20px;
-    font-size: 14px;
-    height: 30%;
-    width: 20%;
-}
-
-.dashboard-cards .card .card-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 5px;
-    font-size: 10px;
-}
-
-.dashboard-cards .card .card-content .card-number {
-    font-size: 20px;
-    font-weight: bold;
-    margin: 0;
-}
-
-.dashboard-cards .card .card-content .card-label {
-    font-size: 10px;
-    margin: 0;
-}
-
-/*\Manager courses*/
-.ManagerCourses{
+.mmain-page {
     display: flex;
     width: 100%;
     min-height: 100vh;
     background: var(--background);
     overflow-x: hidden;
-    gap:10px;
-
 }
-
-.ManagerCourses .CoursesFilters select{
-    gap:15px;
-    display: inline;
-    margin-bottom: 15px;
-    margin-right: 18px;
-    margin-bottom: 15px;
-    padding: 5px 19px 5px 10px;
-    border: transparent;
-    border-radius: 35px;
-    background-color: white;
-    box-shadow: 0 2px 1px rgba(0, 0, 0, 0.15);
-    font-size: 14px;
-    color: #222;
-    outline: none;
-    cursor: pointer;border-radius: 10px;
-
-
-}
-
-.ManagerCourses {
-    display: flex;
-    min-height: 100vh;
-    background: #f7f7f7;
-}
-
-.MCourses-content {
+ 
+.mmain-content {
     flex: 1;
-    padding: 45px 55px;
-}
-
-.MCourses-content h1 {
-    margin: 0 0 25px 0;
-    font-size: 28px;
-    font-weight: 500;
-    color: #111;
-}
-
-/* FILTERS */
-
-.CoursesFilters {
-    width: 100%;
-    border-radius: 5px;
-}
-
-.course-filter-row {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 35px;
-}
-
-.courseFilter-row select {
-    width: 165px;
-    height: 38px;
-
-    padding: 0 12px;
-
-    background: white;
-    border: none;
-    border-radius: 10px;
-
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
-
-    font-size: 14px;
-    color: #777;
-
-    cursor: pointer;
-}
-
-.course-filter-row select:focus {
-    outline: none;
-    
-}
-
-.details-button{
-    border:none;
-    background: none;
-    color: var(--primary-green);
-}
-
-
-/*coursesmodal*/
-
-
-/* Course Details Modal */
-
-.course-details-modal {
-    padding: 10px 0 4px;
-    color: #111;
-}
-
-.course-details-heading {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: #08752f;
-    margin-bottom: 36px;
-}
-
-.course-details-heading h2 {
-    margin: 0;
-    font-size: 24px;
-    font-weight: 700;
-}
-
-.course-details-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
-}
-
-.course-detail-field {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
     min-width: 0;
-}
-
-.course-detail-field label {
-    font-size: 18px;
-    font-weight: 600;
-}
-
-.course-detail-field input {
-    width: 100%;
-    min-width: 0;
-    height: 46px;
-    padding: 0 12px;
-    border: 1px solid #a7c7ae;
-    border-radius: 12px;
-    background: #fff;
-    box-shadow: 0 3px 5px #00000020;
-    font: inherit;
-    font-size: 16px;
-    color: #111;
+    padding: 0 28px 28px;
     box-sizing: border-box;
 }
-
-.course-name-field {
-    grid-column: 1;
+ 
+/* Header: only the bell and the user, on the right side */
+.mmain-page .page-header {
+    justify-content: flex-end;
+    height: 64px;
+    padding: 4px 24px 0 14px;
 }
-
-.course-name-field input {
-    width: 100%;
+ 
+ 
+/* ---------- Employees card (72 Employees) ---------- */
+ 
+.mmain-employees {
+    display: inline-block;
+    margin-left: 4px;
 }
-
-.course-detail-field:nth-child(2) {
-    grid-column: 2;
+ 
+.mmain-employees .card {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-width: 0;
+    margin: 0;
+    padding: 10px 20px;
+    border: 1.5px solid var(--secondary-green);
+    border-radius: 10px;
+    background: var(--white);
 }
-
-.course-detail-field:nth-child(3) {
-    grid-column: 1;
+ 
+.mmain-employees .card-label {
+    margin: 0;
+    font-size: 16px;
+    color: #111111;
 }
-
-.course-detail-field:nth-child(4) {
-    grid-column: 2;
+ 
+.mmain-employees .card-number {
+    font-size: 16px;
 }
-
-.mandatory-field {
-    grid-column: 1 / -1;
+ 
+ 
+/* ---------- Section title ---------- */
+ 
+.mmain-section-title {
+    margin: 22px 0 12px 8px;
+    font-size: 20px;
+    font-weight: 500;
+    color: #000000;
 }
-
-.syllabus-button {
+ 
+ 
+/* ---------- 4 status cards ---------- */
+ 
+.mmain-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 15px;
+    margin-bottom: 14px;
+}
+ 
+.mmain-stats .card {
+    min-width: 0;
+    margin: 0;
+    padding: 10px 8px;
+    border: 1px solid #e3e3e3;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+ 
+.mmain-stats .card-label {
+    margin: 0 0 2px;
+    font-size: 16px;
+    color: #222222;
+}
+ 
+.mmain-stats .card-content {
+    justify-content: center;
+}
+ 
+.mmain-stats .card-number {
+    font-size: 16px;
+    font-weight: 700;
+}
+ 
+/* number colors like the design (the gray in the main file is green) */
+.mmain-stats .text-green {
+    color: #1b7a3e;
+}
+ 
+.mmain-stats .text-orange {
+    color: #f29d38;
+}
+ 
+.mmain-stats .text-red {
+    color: #c4160f;
+}
+ 
+.mmain-stats .text-gray {
+    color: #b7b7b7;
+}
+ 
+ 
+/* ---------- Bar chart ---------- */
+ 
+.mmain-chart {
+    padding: 10px 12px 10px 6px;
+    margin-bottom: 14px;
+    border: 1px solid #e3e3e3;
+    border-radius: 6px;
+    background: var(--white);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+}
+ 
+.mmain-chart-row {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    min-width: 198px;
-    height: 46px;
-    margin-top: 38px;
-    padding: 0 12px;
-    border: 1px solid #a7c7ae;
-    border-radius: 12px;
-    background: #fff;
-    color: #111;
-    font: inherit;
-    font-size: 16px;
-    box-shadow: 0 3px 5px #00000020;
-    cursor: pointer;
+    height: 39px;
 }
-
-.syllabus-button svg {
-    color: #08752f;
+ 
+/* the name on the left, written from bottom to top */
+.mmain-bar-label {
+    width: 18px;
+    flex-shrink: 0;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    text-align: center;
+    white-space: nowrap;
+    font-size: 8px;
+    font-weight: 500;
+    color: #222222;
 }
-
-.syllabus-button:disabled {
-    cursor: not-allowed;
-    opacity: 0.6;
+ 
+/* the green line on the left of the bars */
+.mmain-chart-track {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 7px;
+    box-sizing: border-box;
+    border-left: 3px solid #1d6b35;
 }
-
+ 
+.mmain-bar {
+    height: 28px;
+    border-radius: 2px;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25);
+}
+ 
+.mmain-bar-green {
+    background: #25824a;
+}
+ 
+.mmain-bar-yellow {
+    background: #f4cf4e;
+}
+ 
+.mmain-bar-red {
+    background: #9e1b1e;
+}
+ 
+.mmain-bar-gray {
+    background: #c0c0c0;
+}
+ 
+ 
+/* ---------- Flagged Employees table ---------- */
+ 
+.mmain-flagged {
+    overflow: hidden;
+    border-radius: 14px 14px 0 0;
+    background: var(--white);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+ 
+.mmain-table-title {
+    padding: 12px 16px;
+    background: var(--secondary-green);
+    color: #ffffff;
+    font-size: 20px;
+}
+ 
+.mmain-flagged-table.table-container {
+    border: none;
+    border-radius: 0;
+}
+ 
+.mmain-flagged-table .table {
+    width: 100%;
+    margin-left: 0;
+}
+ 
+.mmain-flagged-table .table th {
+    padding: 10px 16px;
+    background: var(--white);
+    color: #000000;
+    font-size: 13px;
+    font-weight: 700;
+    text-align: center;
+}
+ 
+.mmain-flagged-table .table td {
+    padding: 9px 16px;
+    border-bottom: none;
+    font-size: 13px;
+    text-align: center;
+}
+ 
+/* ID and Name are on the left */
+.mmain-flagged-table .table th:nth-child(1),
+.mmain-flagged-table .table td:nth-child(1),
+.mmain-flagged-table .table th:nth-child(2),
+.mmain-flagged-table .table td:nth-child(2) {
+    text-align: left;
+}
+ 
+/* grey background on every second row */
+.mmain-flagged-table .table tbody tr:nth-child(even) {
+    background: #f1f1f1;
+}
+ 
+ 
+/* ---------- Small screens ---------- */
+ 
+@media (max-width: 800px) {
+    .mmain-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+ 
 @media (max-width: 600px) {
-    .course-details-grid {
-        grid-template-columns: 1fr;
-        gap: 18px;
-    }
-
-    .course-detail-field,
-    .course-name-field,
-    .course-detail-field:nth-child(2),
-    .course-detail-field:nth-child(3),
-    .course-detail-field:nth-child(4),
-    .mandatory-field {
-        grid-column: 1;
+    .mmain-content {
+        padding: 0 12px 16px;
     }
 }
+ 
 
 
 /*Manager_Employees*/
@@ -2396,7 +2377,8 @@ body {
 }
 
 .status-expired {
-    background: #bb271a;
+    background: #F4B3B3;
+    color: #A40000;
 }
 
 .status-incomplete {
@@ -3250,3 +3232,368 @@ body {
     }
 }
  
+
+/* User Management Page */
+/* Paste this code at the end of your global.css file */
+
+.um-page {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    background: var(--background);
+    overflow-x: hidden;
+}
+
+.um-content {
+    flex: 1;
+    min-width: 0;
+    padding: 0 24px 24px;
+    box-sizing: border-box;
+}
+
+/* Page title is black like the design */
+.um-page .page-header-title {
+    color: var(--text-primary);
+    font-size: 22px;
+}
+
+
+/* Status badges used by the StatusBadge component */
+.status-enabled {
+    background: #d9f7df;
+    color: var(--secondary-green);
+    border: 1px solid #08752e9a;
+}
+
+.status-disabled {
+    background: #f4b3b3c7;
+    color: #a40000;
+    border: 1px solid #a40000b3;
+}
+
+
+/* Search, sort and add button */
+.um-toolbar {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.um-search {
+    position: relative;
+    width: 260px;
+    max-width: 100%;
+}
+
+.um-search .input {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 9px 12px 9px 34px;
+}
+
+.um-search-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #777777;
+    pointer-events: none;
+}
+
+.um-sort {
+    width: 150px;
+    padding: 9px 12px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--white);
+    color: var(--text-secondary);
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+}
+
+.um-sort:focus {
+    border-color: var(--secondary-green);
+}
+
+
+/* Users table */
+.um-table.table-container {
+    border: none;
+    border-radius: 8px;
+}
+
+.um-page .table {
+    width: 100%;
+    margin-left: 0;
+}
+
+.um-table .table th {
+    padding: 12px 14px;
+    background: var(--white);
+    color: #000000;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.um-table .table td {
+    padding: 14px;
+    border-bottom: 1px solid #e5e5e5;
+    font-size: 13px;
+}
+
+.um-table .table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Hide the heading above the three icons */
+.um-table .table th:last-child {
+    font-size: 0;
+}
+
+.um-table .status-badge {
+    padding: 3px 12px;
+    font-size: 11px;
+}
+
+
+/* Eye, pencil and trash icons */
+.um-actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.um-icon-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    border: none;
+    border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+}
+
+.um-icon-btn:hover {
+    background: #f1f1f1;
+}
+
+.um-icon-view {
+    color: var(--secondary-green);
+}
+
+.um-icon-edit {
+    color: #a9c9b2;
+}
+
+.um-icon-delete {
+    color: #e57373;
+}
+
+
+/* Green border around the Add, Edit and Details windows */
+.um-modal-area .modal {
+    border: 1px solid #1f9d6b;
+    border-radius: 18px;
+    padding: 20px 24px;
+}
+
+.um-modal-area .modal-header {
+    margin-bottom: 12px;
+}
+
+.um-modal-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--secondary-green);
+}
+
+.um-modal-title-main {
+    display: block;
+    color: var(--primary-green);
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.um-modal-title-sub {
+    display: block;
+    color: #333333;
+    font-size: 9px;
+    font-weight: 400;
+}
+
+/* Section title with a line above it */
+.um-form-section {
+    margin: 0 0 10px;
+    padding-top: 10px;
+    border-top: 1px solid #dcdcdc;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.um-form-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px 16px;
+    margin-bottom: 14px;
+}
+
+.um-form-grid label {
+    font-size: 11px;
+}
+
+.um-form-grid .input {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 6px 8px;
+    font-size: 11px;
+}
+
+/* Enabled and Disabled buttons */
+.um-status-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-self: end;
+}
+
+.um-radio {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 8px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    background: var(--white);
+    font-size: 11px;
+    cursor: pointer;
+}
+
+.um-radio input {
+    margin: 0;
+    accent-color: var(--secondary-green);
+}
+
+.um-radio-on {
+    border-color: #08752e9a;
+    background: #d9f7df;
+    color: var(--secondary-green);
+}
+
+.um-modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 6px;
+}
+
+
+/* Details window */
+.um-details-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px 16px;
+    margin-bottom: 14px;
+}
+
+.um-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    min-width: 0;
+}
+
+.um-detail-label {
+    font-size: 11px;
+    color: #333333;
+}
+
+.um-detail-value {
+    padding: 6px 8px;
+    border-radius: 4px;
+    background: #eef7f0;
+    font-size: 11px;
+    overflow-wrap: anywhere;
+}
+
+
+/* Delete confirmation window */
+.um-delete-area .modal {
+    max-width: 380px;
+    padding: 14px 24px 22px;
+    border-radius: 18px;
+    text-align: center;
+}
+
+.um-delete-area .modal-header {
+    margin-bottom: 0;
+}
+
+.um-delete-area .modal-header h2 {
+    margin: 0;
+}
+
+.um-delete-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.um-delete-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #fde2e0;
+    color: #d9483d;
+}
+
+.um-delete-title {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.um-delete-text {
+    margin: 0;
+    font-size: 11px;
+    line-height: 1.5;
+    color: var(--text-secondary);
+}
+
+.um-delete-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+
+/* Small screens */
+@media (max-width: 700px) {
+    .um-content {
+        padding: 0 12px 16px;
+    }
+
+    .um-form-grid,
+    .um-details-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .um-search,
+    .um-sort {
+        width: 100%;
+    }
+}

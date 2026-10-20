@@ -40,9 +40,9 @@ const Sidebar = ({ role }) => {
 
         admin: [
             { label: "Main page", icon: House, path: "/admin/main"},
-            { label: "Users", icon: Users, path: "/admin/users" },
-            { label: "User Management", icon: UserCog, path: "/admin/user-management" },
             { label: "Courses", icon: BriefcaseBusiness, path: "/admin/courses" },
+            { label: "Employees", icon: Users, path: "/admin/users" },
+            { label: "User Management", icon: UserCog, path: "/admin/user-management" },
             { label: "Reports", icon: ChartNoAxesColumn, path: "/admin/reports" },
             { label: "Audit Log", icon: Logs, path: "/admin/audit-log" },
         ],
