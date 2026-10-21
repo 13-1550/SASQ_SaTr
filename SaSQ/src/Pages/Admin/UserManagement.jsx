@@ -6,6 +6,7 @@ import StatusBadge from "../../Components/Common/StatusBadge/StatusBadge";
 import Button from "../../Components/Common/Button/Button";
 import Input from "../../Components/Common/Input/Input";
 import Modal from "../../Components/Common/Modal/Modal";
+import AdminHeader from "./AdminHeader";
 
 const initialUsers = [
     { id: 1, firstName: "Ahmed", middleName: "Ali", lastName: "Alharbi", email: "Ahmed@Saudia.com", phone: "+966 501234561", corpId: "30002145", payroll: "30002145", role: "Admin", station: "JED", status: "Enabled", position: "IT Support", department: "IT Support", subDepartment: "Service Desk", seniorityDate: "03-Mar-2018" },
@@ -378,22 +379,7 @@ function UserManagement() {
             <Sidebar role="admin" />
 
             <div className="um-content">
-                <header className="page-header">
-                    <h1 className="page-header-title">User Management</h1>
-                    <div className="page-header-user">
-                        <div className="page-header-notifications">
-                            <button className="notification-btn" aria-label="Notifications">
-                                <Bell size={24} />
-                                <span className="notification-badge">1</span>
-                            </button>
-                        </div>
-                        <CircleUserRound className="user-avatar" strokeWidth={1.3} />
-                        <div className="user-info">
-                            <span className="user-name">Khalid Mohammed</span>
-                            <span className="user-role">Admin</span>
-                        </div>
-                    </div>
-                </header>
+                <AdminHeader />
 
                 <div className="um-toolbar">
                     <div className="um-search">

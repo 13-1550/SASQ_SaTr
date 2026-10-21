@@ -12,7 +12,7 @@ import Sidebar from "../../Components/Common/Sidebar/Sidebar";
 import Card from "../../Components/Common/Card/Card";
 import Table from "../../Components/Common/Table/Table";
 import Button from "../../Components/Common/Button/Button";
-
+import AdminHeader from "./AdminHeader";
 
 
 // Numbers shown in the cards
@@ -66,7 +66,7 @@ const recentFields = ["action", "time"];
 
 /*  The page */
 
-function CoordinatorMain() {
+function AdminMain() {
 
     // navigate is used to open another page
     const navigate = useNavigate();
@@ -101,41 +101,7 @@ function CoordinatorMain() {
             <div className="cmain-content">
 
                 {/* ===== Header (title + notifications + user) ===== */}
-                <header className="page-header">
-
-                    <div>
-                        <h1 className="page-header-title">Main page</h1>
-                        <p className="page-header-subtitle">View and manage all Functionality</p>
-                    </div>
-
-                    <div className="page-header-user">
-
-                        <div className="page-header-notifications">
-
-                            {/* Bell with a number, no popup window */}
-                            <button
-                                className="notification-btn"
-                                aria-label="Notifications"
-                            >
-                                <Bell size={24} />
-
-                                {notificationCount > 0 && (
-                                    <span className="notification-badge">{notificationCount}</span>
-                                )}
-                            </button>
-
-                        </div>
-
-                        <CircleUserRound className="user-avatar" strokeWidth={1.3} />
-
-                        <div className="user-info">
-                            <span className="user-name">Khalid Mohammed</span>
-                            <span className="user-role">Admin</span>
-                        </div>
-
-                    </div>
-                </header>
-
+               <AdminHeader />
 
                 {/* Top row: 3 big cards */}
                 <div className="cmain-top-row">
@@ -266,4 +232,4 @@ function CoordinatorMain() {
     );
 }
 
-export default CoordinatorMain;
+export default AdminMain;
