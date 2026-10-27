@@ -1,4 +1,3 @@
-
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import Login from "./Pages/Login/Login";
@@ -12,6 +11,8 @@ import ManagerEmployees from "./Pages/Manager/ManagerEmployees";
 // Employee
 import EmployeeMainPage from "./Pages/Employee/EmployeeMainPage";
 import CoursesPage from "./Pages/Employee/EmployeeCourses";
+import EmployeeUpload from "./Pages/Employee/EmployeeUpload";
+import EmployeeCertificates from "./Pages/Employee/EmployeeCertificates";
 
 // Coordinator
 import CoordinatorMain from "./Pages/TrainingCoordinator/CoordinatorMain";
@@ -23,6 +24,7 @@ import AdminMain from "./Pages/Admin/AMainPage";
 import UserManagement from "./Pages/Admin/UserManagement";
 import AdminReports from "./Pages/Admin/AdminReports";
 import AdminAuditLog from "./Pages/Admin/AdminAuditLog";
+
 function App() {
     return (
         <BrowserRouter>
@@ -39,6 +41,8 @@ function App() {
                 {/* Employee */}
                 <Route path="/employee" element={<EmployeeMainPage />} />
                 <Route path="/employee/courses" element={<CoursesPage />} />
+                <Route path="/employee/upload" element={<EmployeeUpload />} />
+                <Route path="/employee/certificates" element={<EmployeeCertificates />} />
 
                 {/* Training Coordinator */}
                 <Route path="/coordinator" element={<CoordinatorMain />} />
@@ -59,6 +63,7 @@ function App() {
                 />
                 <Route path="/admin/reports" element={<AdminReports />} />
                 <Route path="/admin/audit-log" element={<AdminAuditLog />} />
+
                 {/* Unknown URLs */}
                 <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
