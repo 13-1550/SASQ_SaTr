@@ -2,7 +2,7 @@ import Sidebar from "../../Components/Common/Sidebar/Sidebar";
 import Card from "../../Components/Common/Card/Card";
 import Table from "../../Components/Common/Table/Table";
 import { Bell, CircleUserRound } from "lucide-react";
-
+import ManagerHeader from "./ManagerHeader";
 
 
 // Numbers shown in the cards
@@ -70,37 +70,8 @@ function ManagerMain() {
             <Sidebar role="manager" />
 
             <main className="mmain-content">
-
                 {/* ===== Header (notifications + user) ===== */}
-                <header className="page-header">
-
-                    <div className="page-header-user">
-
-                        <div className="page-header-notifications">
-
-                            {/* Bell with a number, no popup window */}
-                            <button
-                                className="notification-btn"
-                                aria-label="Notifications"
-                            >
-                                <Bell size={24} />
-
-                                {notificationCount > 0 && (
-                                    <span className="notification-badge">{notificationCount}</span>
-                                )}
-                            </button>
-
-                        </div>
-
-                        <CircleUserRound className="user-avatar" strokeWidth={1.3} />
-
-                        <div className="user-info">
-                            <span className="user-name">Mohammed Abdullah</span>
-                            <span className="user-role">Manager</span>
-                        </div>
-
-                    </div>
-                </header>
+                <ManagerHeader />
 
 
                 {/* ===== Employees card ===== */}

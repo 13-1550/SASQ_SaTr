@@ -5,6 +5,7 @@ import Input from "../../Components/Common/Input/Input";
 import Modal from "../../Components/Common/Modal/Modal";
 import Table from "../../Components/Common/Table/Table";
 import {List, FileText, Download} from "lucide-react";
+import ManagerHeader from "./ManagerHeader";
 function ManagerCourses(){
 
     const [selectedCourse, setSelectedCourse] = useState(null);
@@ -72,11 +73,12 @@ function ManagerCourses(){
             />
 
             <main className="MCourses-content">
-            <h1>Employees Courses</h1>
-            <div className="CoursesFilters">
-                <select>
-                    <option>Mandatory only</option>
-                </select>
+                <ManagerHeader />
+                <h1>Employees Courses</h1>
+                <div className="CoursesFilters">
+                    <select>
+                        <option>Mandatory only</option>
+                    </select>
             <select>
                 <option>Least Validity Duration</option>
                 <option>Mandatory first</option>

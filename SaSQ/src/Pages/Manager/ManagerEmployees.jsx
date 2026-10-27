@@ -1,14 +1,170 @@
-import { useMemo, useState } from "react";
+
+import { useState } from "react";
 import Sidebar from "../../Components/Common/Sidebar/Sidebar";
 import Input from "../../Components/Common/Input/Input";
 import Table from "../../Components/Common/Table/Table";
-import { Eye, Bell } from "lucide-react";
-import StatusBadge from "../../Components/Common/StatusBadge/StatusBadge";
-
-
+import { Eye, ArrowLeft, Bell, Check, X, FileText, MessageSquare } from "lucide-react";
+import ManagerHeader from "./ManagerHeader";
 function ManagerEmployees() {
+    const [selectedEmployee, setSelectedEmployee] = useState(null);
     const [search, setSearch] = useState("");
     const [sortBy, setSortBy] = useState("");
+
+    const employees = [
+        {
+            id: 1,
+            Name: "Ahmed Ali",
+            CORPID: "30002145",
+            Position: "IT Support",
+            Department: "IT Support",
+            Status: "Active",
+            firstName: "Ahmed",
+            middleName: "M.",
+            lastName: "Ali",
+            email: "Ahmed.Ali@Saudia.com",
+            payroll: "30002145",
+            seniority: "12-Sep-2020",
+            subDepartment: "IT Operations",
+            completion: 85,
+            requiredCourses: [
+                {
+                    course: "Cybersecurity Awareness",
+                    completed: true,
+                    result: "Pass",
+                    expiry: "01-Jan-2027",
+                    status: "Active"
+                },
+                {
+                    course: "Fire Safety",
+                    completed: true,
+                    result: "Pass",
+                    expiry: "10-Jan-2027",
+                    status: "Active"
+                }
+            ],
+            optionalCourses: [
+                {
+                    course: "Data Center Networking",
+                    completed: true,
+                    result: "Pass",
+                    expiry: "01-Jan-2027",
+                    status: "Active"
+                },
+                {
+                    course: "First Aid and CPR",
+                    completed: false,
+                    result: "Pending",
+                    expiry: "—",
+                    status: "Pending"
+                }
+            ]
+        },
+        {
+            id: 2,
+            Name: "Sara Omar",
+            CORPID: "30002168",
+            Position: "Network Eng",
+            Department: "IT Infrastructure",
+            Status: "Warning",
+            firstName: "Sara",
+            middleName: "Omar",
+            lastName: "AlHazmi",
+            email: "Sara@Saudia.com",
+            payroll: "30002168",
+            seniority: "12-Sep-2016",
+            subDepartment: "Network",
+            completion: 70,
+            requiredCourses: [
+                {
+                    course: "Network Security Fundamentals",
+                    completed: true,
+                    result: "Pass",
+                    expiry: "01-Jan-2027",
+                    status: "Active"
+                },
+                {
+                    course: "Cisco Certified Network Professional",
+                    completed: true,
+                    result: "Pass",
+                    expiry: "10-Jan-2027",
+                    status: "Expired"
+                }
+            ],
+            optionalCourses: [
+                {
+                    course: "Data Center Networking",
+                    completed: true,
+                    result: "Pass",
+                    expiry: "01-Jan-2027",
+                    status: "Active"
+                },
+                {
+                    course: "Fire Safety Awareness",
+                    completed: false,
+                    result: "Fail",
+                    expiry: "29-May-2027",
+                    status: "Expired"
+                }
+            ]
+        },
+        {
+            id: 3,
+            Name: "Faisal Saleh",
+            CORPID: "30002210",
+            Position: "Security Spec",
+            Department: "Security",
+            Status: "Active",
+            firstName: "Faisal",
+            middleName: "A.",
+            lastName: "Saleh",
+            email: "Faisal@Saudia.com",
+            payroll: "30002210",
+            seniority: "15-Feb-2021",
+            subDepartment: "Security Operations",
+            completion: 90,
+            requiredCourses: [],
+            optionalCourses: []
+        },
+        {
+            id: 4,
+            Name: "Reem Abdullah",
+            CORPID: "30002245",
+            Position: "HR Specialist",
+            Department: "Human Resources",
+            Status: "Expired",
+            firstName: "Reem",
+            middleName: "A.",
+            lastName: "Abdullah",
+            email: "Reem@Saudia.com",
+            payroll: "30002245",
+            seniority: "20-Mar-2019",
+            subDepartment: "HR Operations",
+            completion: 45,
+            requiredCourses: [],
+            optionalCourses: []
+        }
+    ];
+
+    const filteredEmployees = employees
+        .filter((employee) =>
+            Object.values(employee)
+                .filter((value) => typeof value === "string" || typeof value === "number")
+                .some((value) =>
+                    String(value).toLowerCase().includes(search.toLowerCase())
+                )
+        )
+        .sort((a, b) => {
+            if (sortBy === "name") {
+                return a.Name.localeCompare(b.Name);
+            }
+            if (sortBy === "department") {
+                return a.Department.localeCompare(b.Department);
+            }
+            if (sortBy === "status") {
+                return a.Status.localeCompare(b.Status);
+            }
+            return a.id - b.id;
+        });
 
     const headers = [
         "#",
@@ -17,181 +173,270 @@ function ManagerEmployees() {
         "Position",
         "Department",
         "Status",
+        "Details"
     ];
 
-    const fields = [
-        "number",
-        "Name",
-        "CORPID",
-        "Position",
-        "Department",
-        "Status",
-    ];
+    const tableData = filteredEmployees.map((employee) => ({
+        id: employee.id,
+        Name: employee.Name,
+        CORPID: employee.CORPID,
+        Position: employee.Position,
+        Department: employee.Department,
+        Status: (
+            <span className={`employee-status status-${employee.Status.toLowerCase()}`}>
+                {employee.Status}
+            </span>
+        )
+    }));
 
-    const employeesData = [
-        {
-            id: 1,
-            number: 1,
-            Name: "Ahmed Ali",
-            CORPID: "30002145",
-            Position: "IT Support",
-            Department: "IT Support",
-            Status: "Active",
-        },
-        {
-            id: 2,
-            number: 2,
-            Name: "Sara Omar",
-            CORPID: "30002168",
-            Position: "Network Eng",
-            Department: "IT Infrastructure",
-            Status: "Warning",
-        },
-        {
-            id: 3,
-            number: 3,
-            Name: "Faisal Saleh",
-            CORPID: "30002210",
-            Position: "Security Spec",
-            Department: "Security",
-            Status: "Active",
-        },
-        {
-            id: 4,
-            number: 4,
-            Name: "Reem Hassan",
-            CORPID: "30002234",
-            Position: "DBA",
-            Department: "Database",
-            Status: "Inactive",
-        },
-        {
-            id: 5,
-            number: 5,
-            Name: "Omar Khalid",
-            CORPID: "30002278",
-            Position: "Cloud Eng",
-            Department: "Cloud",
-            Status: "Warning",
-        },
-        {
-            id: 6,
-            number: 6,
-            Name: "Lama Fahad",
-            CORPID: "30002301",
-            Position: "Mobile Deve",
-            Department: "Applications",
-            Status: "Active",
-        },
-        {
-            id: 7,
-            number: 7,
-            Name: "Noura Saad",
-            CORPID: "30002345",
-            Position: "QA Engineer",
-            Department: "QA",
-            Status: "Inactive",
-        },
-        {
-            id: 8,
-            number: 8,
-            Name: "Abdullah Ali",
-            CORPID: "30002388",
-            Position: "IT Analyst",
-            Department: "Operations",
-            Status: "Warning",
-        },
-        {
-            id: 9,
-            number: 9,
-            Name: "Dena Yousif",
-            CORPID: "30002370",
-            Position: "UX Spec",
-            Department: "Digital Solutions",
-            Status: "Active",
-        },
-    ];
+    const renderCourseTable = (courses) => (
+        <div className="employee-detail-table-wrapper">
+            <table className="employee-detail-table">
+                <thead>
+                    <tr>
+                        <th>Course</th>
+                        <th>Completed?</th>
+                        <th>Result</th>
+                        <th>Expiry Date</th>
+                        <th>Status</th>
+                        <th>Certificate Doc</th>
+                        <th>Feedback</th>
+                    </tr>
+                </thead>
 
-    const filteredEmployees = useMemo(() => {
-        let result = employeesData.filter((employee) =>
-            Object.values(employee).some((value) =>
-                String(value)
-                    .toLowerCase()
-                    .includes(search.toLowerCase())
-            )
-        );
-
-        if (sortBy) {
-            result = [...result].sort((a, b) => {
-                if (sortBy === "CORPID") {
-                    return a.CORPID.localeCompare(b.CORPID);
-                }
-
-                return String(a[sortBy]).localeCompare(
-                    String(b[sortBy])
-                );
-            });
-        }
-
-        return result.map((employee, index) => ({
-            ...employee,
-            number: index + 1,
-        }));
-    }, [search, sortBy]);
+                <tbody>
+                    {courses.length > 0 ? (
+                        courses.map((course) => (
+                            <tr key={course.course}>
+                                <td>{course.course}</td>
+                                <td>
+                                    <span className={`completion-mark ${course.completed ? "mark-yes" : "mark-no"}`}>
+                                        {course.completed ? <Check size={15} /> : <X size={15} />}
+                                    </span>
+                                </td>
+                                <td>{course.result}</td>
+                                <td>{course.expiry}</td>
+                                <td>
+                                    <span className={`employee-status status-${course.status.toLowerCase()}`}>
+                                        {course.status}
+                                    </span>
+                                </td>
+                                <td>
+                                    <button
+                                        className="document-button"
+                                        title="Certificate document (demo)"
+                                        onClick={() => alert("Certificate document demo")}
+                                    >
+                                        <FileText size={19} />
+                                    </button>
+                                </td>
+                                <td>
+                                    <button
+                                        className="feedback-button"
+                                        title="Feedback (demo)"
+                                        onClick={() => alert("Feedback demo")}
+                                    >
+                                        <MessageSquare size={18} />
+                                    </button>
+                                </td>
+                            </tr>
+                        ))
+                    ) : (
+                        <tr>
+                            <td colSpan="7" className="employee-no-courses">
+                                No courses available
+                            </td>
+                        </tr>
+                    )}
+                </tbody>
+            </table>
+        </div>
+    );
 
     return (
-        <div className="ManagerEmployees">
+        <div className="manager-employees-page">
             <Sidebar role="manager" />
+    
+            <main className="manager-employees-content">
+                <ManagerHeader />
+                {selectedEmployee ? (
+                    <>
+                        <header className="employee-details-topbar">
+                            <h1>Employees Details</h1>
 
-            <main className="MEmployees-content">
-                <header className="Employees-header">
-                    <h1>Employees Records</h1>
+                            <div className="employee-manager-info">
+                                <Bell size={21} color="#037c43" />
+                                <div className="manager-avatar">M</div>
+                                <div>
+                                    <strong>Mohammed Abdullah</strong>
+                                    <p>Manager</p>
+                                </div>
+                            </div>
+                        </header>
 
-                </header>
+                        <button
+                            type="button"
+                            className="employee-back-button"
+                            onClick={() => setSelectedEmployee(null)}
+                        >
+                            <ArrowLeft size={19} />
+                        </button>
 
-                <div className="EmployeesFilters">
-                    <Input
-                        placeholder="Search by any field..."
-                        value={search}
-                        onChange={(e) => setSearch(e.target.value)}
-                    />
+                        <div className="employee-details-grid">
+                            <section className="employee-profile-card">
+                                <div className="employee-profile-heading">
+                                    <div className="employee-avatar">👤</div>
 
-                    <select
-                        value={sortBy}
-                        onChange={(e) => setSortBy(e.target.value)}
-                        className="employees-sort"
-                    >
-                        <option value="">Sort by</option>
-                        <option value="Name">Name</option>
-                        <option value="CORPID">CORPID</option>
-                        <option value="Position">Position</option>
-                        <option value="Department">Department</option>
-                        <option value="Status">Status</option>
-                    </select>
-                </div>
+                                    <div className="employee-profile-name">
+                                        <h2>
+                                            {selectedEmployee.firstName}{" "}
+                                            {selectedEmployee.middleName}{" "}
+                                            {selectedEmployee.lastName}
+                                        </h2>
+                                        <p>
+                                            {selectedEmployee.Position},{" "}
+                                            {selectedEmployee.Department} Department
+                                        </p>
+                                    </div>
 
-                <Table
-    headers={headers}
-    fields={fields}
-    data={filteredEmployees}
-    renderCell={(row, field) => {
-        if (field === "Status") {
-            return <StatusBadge status={row.Status} />;
-        }
+                                    <span className={`employee-status status-${selectedEmployee.Status.toLowerCase()}`}>
+                                        {selectedEmployee.Status}
+                                    </span>
+                                </div>
 
-        return row[field];
-    }}
-    actions={(row) => (
-        <button
-            type="button"
-            className="employee-view-button"
-            aria-label={`View ${row.Name}`}
-            onClick={() => console.log("Selected employee:", row)}
-        >
-            <Eye size={16} />
-        </button>
-    )}
-/>
+                                <div className="employee-personal-grid">
+                                    <div>
+                                        <label>First Name</label>
+                                        <p>{selectedEmployee.firstName}</p>
+                                    </div>
+                                    <div>
+                                        <label>Middle Name</label>
+                                        <p>{selectedEmployee.middleName}</p>
+                                    </div>
+                                    <div>
+                                        <label>Last Name</label>
+                                        <p>{selectedEmployee.lastName}</p>
+                                    </div>
+                                    <div>
+                                        <label>Email Address</label>
+                                        <p>{selectedEmployee.email}</p>
+                                    </div>
+                                    <div>
+                                        <label>Payroll Number</label>
+                                        <p>{selectedEmployee.payroll}</p>
+                                    </div>
+                                    <div>
+                                        <label>Position</label>
+                                        <p>{selectedEmployee.Position}</p>
+                                    </div>
+                                    <div>
+                                        <label>Department</label>
+                                        <p>{selectedEmployee.Department}</p>
+                                    </div>
+                                    <div>
+                                        <label>Sub - Department</label>
+                                        <p>{selectedEmployee.subDepartment}</p>
+                                    </div>
+                                    <div>
+                                        <label>Seniority Date</label>
+                                        <p>{selectedEmployee.seniority}</p>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <section className="employee-completion-card">
+                                <p>Overall Course Completion Rate</p>
+                                <div
+                                    className="employee-completion-circle"
+                                    style={{
+                                        "--completion": `${selectedEmployee.completion}%`
+                                    }}
+                                >
+                                    <strong>{selectedEmployee.completion}%</strong>
+                                </div>
+                            </section>
+                        </div>
+
+                        <section className="employee-courses-section">
+                            <h2>Required Courses and Certificates</h2>
+                            {renderCourseTable(selectedEmployee.requiredCourses)}
+                        </section>
+
+                        <section className="employee-courses-section">
+                            <h2>Optional Courses and Certificates</h2>
+                            {renderCourseTable(selectedEmployee.optionalCourses)}
+                        </section>
+                    </>
+                ) : (
+                    <>
+                        <h1>Employees Records</h1>
+
+                        <div className="employee-record-filters">
+                            <Input
+                                placeholder="Search by any field..."
+                                value={search}
+                                onChange={(event) => setSearch(event.target.value)}
+                            />
+
+                            <select
+                                value={sortBy}
+                                onChange={(event) => setSortBy(event.target.value)}
+                            >
+                                <option value="">Sort by</option>
+                                <option value="name">Name</option>
+                                <option value="department">Department</option>
+                                <option value="status">Status</option>
+                            </select>
+                        </div>
+
+                        <div className="employee-record-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        {headers.map((header) => (
+                                            <th key={header}>{header}</th>
+                                        ))}
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    {filteredEmployees.length > 0 ? (
+                                        filteredEmployees.map((employee, index) => (
+                                            <tr key={employee.id}>
+                                                <td>{index + 1}</td>
+                                                <td>{employee.Name}</td>
+                                                <td>{employee.CORPID}</td>
+                                                <td>{employee.Position}</td>
+                                                <td>{employee.Department}</td>
+                                                <td>
+                                                    <span className={`employee-status status-${employee.Status.toLowerCase()}`}>
+                                                        {employee.Status}
+                                                    </span>
+                                                </td>
+                                                <td>
+                                                    <button
+                                                        type="button"
+                                                        className="employee-eye-button"
+                                                        aria-label={`View ${employee.Name}`}
+                                                        onClick={() => setSelectedEmployee(employee)}
+                                                    >
+                                                        <Eye size={22} />
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        ))
+                                    ) : (
+                                        <tr>
+                                            <td colSpan="7" className="employee-no-courses">
+                                                No employees found
+                                            </td>
+                                        </tr>
+                                    )}
+                                </tbody>
+                            </table>
+                        </div>
+                    </>
+                )}
             </main>
         </div>
     );
