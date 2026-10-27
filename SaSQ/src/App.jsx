@@ -5,6 +5,9 @@ import ManagerReports from "./Pages/Manager/ManagerReports";
 import ManagerCourses from "./Pages/Manager/ManagerCourses";
 import ManagerEmployees from "./Pages/Manager/ManagerEmployees";
 
+// صفحات الموظف اللي سويناها
+import EmployeeUpload from "./Pages/Employee/EmployeeUpload";
+import EmployeeCertificates from "./Pages/Employee/EmployeeCertificates";
 
 function App() {
     return (
@@ -27,14 +30,26 @@ function App() {
                 />
 
                 <Route
-                path="/manager/courses"
-                element={<ManagerCourses />}
+                    path="/manager/courses"
+                    element={<ManagerCourses />}
                 />
 
                 <Route
-                path="/manager/employees"
-                element={<ManagerEmployees />}
+                    path="/manager/employees"
+                    element={<ManagerEmployees />}
                 />
+
+                {/* مسارات الموظف الجديدة */}
+                <Route
+                    path="/employee/upload"
+                    element={<EmployeeUpload />}
+                />
+
+                <Route
+                    path="/employee/certificates"
+                    element={<EmployeeCertificates />}
+                />
+
             </Routes>
         </BrowserRouter>
     );
