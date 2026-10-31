@@ -6,7 +6,7 @@ import StatusBadge from "../../Components/Common/StatusBadge/StatusBadge";
 import Input from "../../Components/Common/Input/Input";
 import Button from "../../Components/Common/Button/Button";
 import Modal from "../../Components/Common/Modal/Modal";
-
+import AdminHeader from "./AdminHeader";
 const employeesData = [
     { id: 1, name: "Ahmed Ali", position: "IT Support", payroll: "30002145", subDept: "Service Desk", department: "IT Support", status: "Active" },
     { id: 2, name: "Sara Omar", position: "Network Eng", payroll: "30002168", subDept: "Network", department: "IT Infrastructure", status: "Warning" },
@@ -76,20 +76,7 @@ function AdminEmployees() {
             <Sidebar role="admin" />
 
             <main className="admin-employees-content">
-                <header className="page-header">
-                    <h1 className="page-header-title">Employees Records</h1>
-                    <div className="page-header-user">
-                        <button type="button" className="notification-btn" aria-label="Notifications">
-                            <Bell size={24} />
-                            <span className="notification-badge">1</span>
-                        </button>
-                        <CircleUserRound className="user-avatar" strokeWidth={1.3} />
-                        <div className="user-info">
-                            <span className="user-name">Khalid Mohammed</span>
-                            <span className="user-role">Admin</span>
-                        </div>
-                    </div>
-                </header>
+                <AdminHeader />
 
                 <div className="um-toolbar">
                     <div className="um-search">

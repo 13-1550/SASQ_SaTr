@@ -25,7 +25,7 @@ const Sidebar = ({ role }) => {
         ],
 
         coordinator: [
-            { label: "Main page", icon: House, path: "/coordinator/main"},
+            { label: "Main page", icon: House, path: "/coordinator/main", end: true },
             { label: "Courses", icon: BriefcaseBusiness, path: "/coordinator/courses" },
             { label: "Employees", icon: Users, path: "/coordinator/employees" },
             { label: "Reports", icon: ChartNoAxesColumn, path: "/coordinator/reports" },
@@ -39,9 +39,9 @@ const Sidebar = ({ role }) => {
         ],
 
         admin: [
-            { label: "Main page", icon: House, path: "/admin/main"},
+            { label: "Main page", icon: House, path: "/admin/main", end: true },
             { label: "Courses", icon: BriefcaseBusiness, path: "/admin/courses" },
-            { label: "Employees", icon: Users, path: "/admin/users" },
+            { label: "Employees", icon: Users, path: "/admin/employees" },
             { label: "User Management", icon: UserCog, path: "/admin/user-management" },
             { label: "Reports", icon: ChartNoAxesColumn, path: "/admin/reports" },
             { label: "Audit Log", icon: Logs, path: "/admin/audit-log" },

@@ -20,7 +20,7 @@ import Sidebar from "../../Components/Common/Sidebar/Sidebar";
 import Card from "../../Components/Common/Card/Card";
 import Button from "../../Components/Common/Button/Button";
 import Table from "../../Components/Common/Table/Table";
-
+import EmployeeHeader from "./EmployeeHeader";
 // Course Data
 const courses = [
     {
@@ -118,43 +118,7 @@ function CoursesPage() {
 
             <main className="dashboard-content">
                 {/* Page Header */}
-                <header className="page-header">
-                    <div>
-                        <h1 className="page-header-title courses-title">
-                            Courses
-                        </h1>
-
-                        <p className="page-header-subtitle">
-                            View and manage available training courses.
-                        </p>
-                    </div>
-
-                    <div className="page-header-user">
-                        <button
-                            type="button"
-                            className="notification-btn"
-                            aria-label="Notifications"
-                        >
-                            <Bell size={24} />
-                            <span className="notification-badge">1</span>
-                        </button>
-
-                        <CircleUser
-                            size={46}
-                            className="user-avatar"
-                        />
-
-                        <div className="user-info">
-                            <span className="user-name">
-                                Omar Mohammed
-                            </span>
-
-                            <span className="user-role">
-                                Employee
-                            </span>
-                        </div>
-                    </div>
-                </header>
+               <EmployeeHeader />
 
                 {/* Course Summary Cards */}
                 <section className="courses-cards">

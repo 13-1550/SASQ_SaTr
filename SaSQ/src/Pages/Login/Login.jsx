@@ -10,11 +10,11 @@ function Login() {
     const users = {
         employee: {
             name: "Employee",
-            path: "/employee"
+            path: "/employee/main"
         },
         coordinator: {
             name: "Training Coordinator",
-            path: "/coordinator"
+            path: "/coordinator/main"
         },
         manager: {
             name: "Manager",

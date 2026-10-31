@@ -503,256 +503,280 @@ body {
 }
 
 /* reports */
+
+/* Manager Reports page */
 .ManagerReports {
-    display: flex;
-    width: 100%;
-    min-height: 100vh;
-    background: var(--background);
-    overflow-x: hidden;
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  background: #f7f8fa;
+  overflow-x: hidden;
 }
 
 .ManagerReports-content {
-    flex: 1;
-    min-width: 0;
-    width: 0;
-    padding: 30px;
-    box-sizing: border-box;
+  flex: 1;
+  min-width: 0;
+  padding: 28px 40px;
+  box-sizing: border-box;
 }
 
-.reports {
-    width: 100%;
-    margin-top: 10px;
+.ManagerReports-content h1 {
+  margin: 0 0 24px;
+  font-size: 26px;
+  font-weight: 600;
 }
 
-.reports h1 {
-    margin: 0 0 25px;
-    font-size: 21px;
-    font-weight: 500;
-}
-.report h2 {
-    margin: 0 0 20px;
-    font-size: 21px;
-}
-
-.report-type-select {
-    width: 170px !important;
-}
-
-.report-controls {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
+/* Filters panel */
+.ManagerReports .report-filters {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 15px 10px;
+  width: 100%;
+  padding: 24px;
+  margin-bottom: 28px;
+  background: #fff;
+  border: 1px solid #e5e9ed;
+  border-radius: 12px;
+  box-sizing: border-box;
 }
 
-.report-controls button {
-    padding: 10px 18px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background: white;
-    cursor: pointer;
-    color: #333;
-    font-size: 12px;
+.ManagerReports .report-filters > * {
+  min-width: 0;
 }
 
-.completion-chart-wrapper {
-    width: 100%;
-    overflow-x: auto;
-    overflow-y: hidden;
+.ManagerReports .report-filter,
+.ManagerReports .employee-select {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+  width: 100%;
 }
 
-.completion-chart {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-around;
-    gap: 20px;
-    width: 100%;
-    min-width: 400px;
-    height: 250px;
-    padding: 20px 30px;
-    box-sizing: border-box;
-    overflow-x: hidden;
+.ManagerReports .report-filter label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #46515d;
 }
 
-.completion-chart-wrapper::-webkit-scrollbar {
-    height: 8px;
+/* Dropdowns and employee search */
+.ManagerReports .report-filter select,
+.ManagerReports .report-filter input,
+.ManagerReports .employee-select input,
+.ManagerReports .report-type-select {
+  width: 100%;
+  min-width: 0;
+  height: 42px;
+  margin: 0;
+  padding: 0 12px;
+  border: 1px solid #dce1e7;
+  border-radius: 7px;
+  background: #fff;
+  color: #293541;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  box-sizing: border-box;
 }
 
-.completion-chart-wrapper::-webkit-scrollbar-track {
-    background: transparent;
+
+
+.ManagerReports .report-filter select,
+.ManagerReports .report-type-select {
+  cursor: pointer;
 }
 
-.completion-chart-wrapper::-webkit-scrollbar-thumb {
-    background: #bdbdbd;
-    border-radius: 10px;
+.ManagerReports .report-filter select:focus,
+.ManagerReports .report-filter input:focus,
+.ManagerReports .employee-select input:focus {
+  outline: none;
+  border-color: #16845b;
+  box-shadow: 0 0 0 3px rgba(22, 132, 91, 0.1);
 }
 
-.completion-chart-wrapper::-webkit-scrollbar-thumb:hover {
-    background: #999999;
+/* Employee suggestions */
+.ManagerReports .employee-options {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  width: 100%;
+  max-height: 220px;
+  overflow-y: auto;
+  background: #fff;
+  border: 1px solid #e0e5e9;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(20, 35, 50, 0.12);
+  z-index: 20;
+  box-sizing: border-box;
 }
 
-.chart-slider {
-    width: 100%;
-    padding: 4px 0;
+.ManagerReports .employee-options div {
+  padding: 11px 12px;
+  font-size: 13px;
+  cursor: pointer;
 }
 
-.chart-range {
-    width: 100%;
-    height: 6px;
-    appearance: none;
-    background: #dddddd;
-    border-radius: 10px;
-    cursor: pointer;
+.ManagerReports .employee-options div:hover {
+  background: #edf7f1;
 }
 
-.chart-range::-webkit-slider-thumb {
-    appearance: none;
-    width: 45px;
-    height: 6px;
-    border-radius: 10px;
-    background: #999999;
-    cursor: grab;
+/* Filter action buttons */
+.ManagerReports .report-filter-buttons {
+  display: flex;
+  grid-column: 1 / -1;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 2px;
 }
 
-.chart-range::-moz-range-thumb {
-    width: 45px;
-    height: 6px;
-    border: none;
-    border-radius: 10px;
-    background: #999999;
-    cursor: grab;
+.ManagerReports .report-filter-buttons button {
+  min-height: 42px;
+  padding: 0 22px;
+  border-radius: 7px;
 }
-.bar-group {
-    height: 100%;
-    display: flex;
+
+/* Report card */
+.ManagerReports-content .report {
+  width: 100%;
+  min-width: 0;
+  margin-top: 28px;
+  padding: 25px;
+  background: #fff;
+  border: 1px solid #e5e9ed;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.ManagerReports-content .report h2 {
+  margin: 0 0 20px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* Chart */
+.ManagerReports .completion-chart-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.ManagerReports .completion-chart {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  gap: 20px;
+  width: 100%;
+  min-width: 400px;
+  height: 250px;
+  padding: 20px 30px;
+  box-sizing: border-box;
+}
+
+.ManagerReports .bar-group {
+  height: 100%;
+  display: flex;
+  flex: 0 0 25px;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.ManagerReports .bars {
+  height: 190px;
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.ManagerReports .bar-total,
+.ManagerReports .bar-completed {
+  width: 18px;
+  max-height: 200px;
+  border-radius: 3px 3px 0 0;
+}
+
+.ManagerReports .bar-total {
+  background: #d0d0d0;
+}
+
+.ManagerReports .bar-completed {
+  background: #037c43;
+}
+
+.ManagerReports .bar-label {
+  display: block;
+  width: 100%;
+  height: 20px;
+  margin-top: 10px;
+  color: #687581;
+  font-size: 10px;
+  line-height: 12px;
+  text-align: center;
+  white-space: normal;
+}
+
+.ManagerReports .report-navigation {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.ManagerReports .report-arrow {
+  width: 45px;
+  height: 32px;
+  border: 1px solid #e0e5e9;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.ManagerReports .report-arrow:hover {
+  background: #f5f8f6;
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .ManagerReports-content {
+    padding: 24px;
+  }
+
+  .ManagerReports .report-filters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .ManagerReports-content {
+    padding: 20px 14px;
+  }
+
+  .ManagerReports .report-filters {
+    grid-template-columns: 1fr;
+    padding: 16px;
+  }
+
+  .ManagerReports .report-filter-buttons {
+    grid-column: auto;
+    align-items: stretch;
     flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
-    flex: 0 0 25px;
-    min-width: 0;
-}
+  }
 
-.bars {
-    height: 190px;
-    display: flex;
-    align-items: flex-end;
-    gap: 4px;
-}
-
-.bar-total {
-    width: 18px;
-    background-color: #d0d0d0;
-    border-radius: 3px 3px 0 0;
-    max-height: 200px;
-}
-
-.bar-completed {
-    width: 18px;
-    background-color: #037c43;
-    border-radius: 3px 3px 0 0;
-    max-height: 200px;
-}
-
-.bar-label {
-    margin-top: 10px;
-    display:block;
-    line-height: 10px;
-    font-size: 8px;
-    font-weight: 500;
-    gap: 4px;
-    color: -var(--text-secondary);
-    white-space: normal;
-    text-align: center;
-
+  .ManagerReports .report-filter-buttons button {
     width: 100%;
-    height: 20px;
+  }
 
+  .ManagerReports-content .report {
+    padding: 16px;
+  }
 }
-
-.report {
-    width: 100%;
-    margin-top: 35px;
-    padding: 25px;
-    background: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
-    box-sizing: border-box;
-    overflow-x: hidden;
-}
-.report h2 {
-    margin: 0 0 20px;
-    font-size: 18px;
-    font-weight: 500;
-}
-
-.report-navigation {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-}
-
-.report-arrow {
-    width: 45px;
-    height: 32px;
-    border: none;
-    border-radius: 10px;
-    background: white;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
-    font-size: 20px;
-    cursor: pointer;
-}
-
-.report-arrow:hover {
-    background: #f5f5f5;
-}
-
-.report-filters {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
-    width: 100%;
-}
-.employee-select {
-    position: relative;
-    width: 170px;
-}
-
-.employee-select input {
-    width: 100%;
-    height: 34px;
-    padding: 0 12px;
-    border: none;
-    border-radius: 10px;
-    background: white;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
-    font-size: 14px;
-    box-sizing: border-box;
-    outline: none;
-}
-
-.employee-options {
-    position: absolute;
-    top: 40px;
-    left: 0;
-    width: 100%;
-    max-height: 180px;
-    overflow-y: auto;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
-    z-index: 10;
-}
-
-.employee-options div {
-    padding: 9px 12px;
-    font-size: 13px;
-    cursor: pointer;
-}
-
-.employee-options div:hover {
-    background: #f1f8f3;
-}
-
 
 
 /* Training Summary donut chart */
@@ -1337,37 +1361,65 @@ body {
 }
 
 .manager-employees-content h1 {
-    margin: 0 0 28px;
+    margin: 10px 0 28px;
     font-size: 32px;
 }
 
 /* Records search and sorting */
+
+/* Manager Employees - filter layout */
+
 .employee-record-filters {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 24px;
-    margin: 0 0 32px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  margin: 0 0 24px;
 }
 
 .employee-record-filters > :first-child {
-    width: 100%;
+  width: 100%;
+  min-width: 0;
 }
 
 .employee-record-filters input {
-    width: 100%;
+  width: 100%;
+  height: 44px;
+  padding: 0 16px;
+  box-sizing: border-box;
+  border: 1px solid #d8d8d8;
+  border-radius: 10px;
+  background: #fff;
+  font-size: 15px;
 }
 
 .employee-record-filters select {
-    width: 265px;
-    max-width: 100%;
-    height: 48px;
-    padding: 0 16px;
-    border: 1px solid #dedede;
-    border-radius: 12px;
-    background: white;
-    font: inherit;
+  width: 100%;
+  max-width: 100%;
+  height: 44px;
+  padding: 0 14px;
+  box-sizing: border-box;
+  border: 1px solid #d8d8d8;
+  border-radius: 10px;
+  background: #fff;
+  font-size: 15px;
+  cursor: pointer;
 }
+
+.employee-record-filters input:focus,
+.employee-record-filters select:focus {
+  outline: 2px solid #b8e9c9;
+  border-color: #07834b;
+}
+
+@media (max-width: 700px) {
+  .employee-record-filters {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
 
 /* Records table */
 .employee-record-table,
@@ -1693,6 +1745,7 @@ body {
     display: flex;
     width: 100%;
     min-height: 100vh;
+    background: var(--background);
 }
 
 .MCourses-content {
@@ -1700,6 +1753,12 @@ body {
     min-width: 0;
     padding: 30px;
     box-sizing: border-box;
+}
+
+.details-button {
+    color: #037c43;
+    background: transparent;
+    border: none;
 }
 
 
@@ -4140,7 +4199,7 @@ body {
 
 /*Coordinator Reports*/
 
-/* Fix Coordinator Reports layout */
+
 .CoordinatorReports {
   display: flex;
   min-height: 100vh;
@@ -4347,7 +4406,7 @@ body {
   display: flex;
   min-height: 100vh;
   width: 100%;
-  background: #f7f8fa;
+  background: var(--background);
 }
 
 .AdminReports-content {
@@ -4811,7 +4870,7 @@ body {
   display: flex;
   min-height: 100vh;
   width: 100%;
-  background: #f7f8fa;
+  background: var(--background);
 }
 
 .audit-content {
@@ -5299,5 +5358,973 @@ body {
 
   .header-logout-button span {
     display: none;
+  }
+}
+
+
+/* ---------- Admin courses ---------- */
+
+
+
+
+.courses-page {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  background: var(--background);
+}
+
+.courses-content {
+  flex: 1;
+  min-width: 0;
+  padding: 24px 28px;
+  box-sizing: border-box;
+}
+
+
+/* Page title */
+
+.courses-title {
+  margin: 20px 0 28px;
+  color: #111;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+/* Toolbar */
+
+
+.courses-toolbar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.courses-search {
+  flex: 1 1 220px;
+  min-width: 180px;
+}
+
+.courses-toolbar .um-search {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 42px;
+  padding: 0 12px;
+  border: 1px solid #d8d8d8;
+  border-radius: 9px;
+  background: #fff;
+}
+
+.courses-toolbar .um-search input {
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+  padding: 0 18px;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  background: transparent;
+  font-size: 14px;
+}
+
+.um-search-icon {
+  flex-shrink: 0;
+  color: #999;
+}
+
+.courses-select {
+  position: relative;
+  flex: 0 1 155px;
+  min-width: 125px;
+}
+
+.courses-select select {
+  width: 100%;
+  height: 42px;
+  appearance: none;
+  padding: 0 34px 0 13px;
+  border: 1px solid #d8d8d8;
+  border-radius: 9px;
+  background: #fff;
+  color: #555;
+  font-size: 14px;
+  cursor: pointer;
+  outline-color: #07834b;
+}
+
+.courses-select-icon {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  color: #777;
+  pointer-events: none;
+}
+
+/* Add Course button */
+
+.courses-toolbar .btn {
+  min-height: 42px;
+  padding: 0 18px;
+  border-radius: 9px;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+/* Table wrapper and table */
+
+.courses-table {
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid #dedede;
+  border-radius: 18px;
+  background: #fff;
+}
+
+.courses-table table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.courses-table thead {
+  background: #fff;
+}
+
+.courses-table th {
+  padding: 22px 20px;
+  color: #111;
+  font-size: 17px;
+  font-weight: 600;
+  text-align: left;
+  border-bottom: 1px solid #dedede;
+}
+
+.courses-table td {
+  padding: 15px 20px;
+  color: #171717;
+  font-size: 15px;
+  border-bottom: 1px solid #dedede;
+  overflow-wrap: anywhere;
+}
+
+.courses-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.courses-table tbody tr:hover {
+  background: #f8fcf9;
+}
+
+/* Name, Code, Trainer and Details columns */
+
+.courses-table th:nth-child(1),
+.courses-table td:nth-child(1) {
+  width: 38%;
+}
+
+.courses-table th:nth-child(2),
+.courses-table td:nth-child(2) {
+  width: 19%;
+  text-align: center;
+}
+
+.courses-table th:nth-child(3),
+.courses-table td:nth-child(3) {
+  width: 25%;
+  text-align: center;
+}
+
+.courses-table th:last-child,
+.courses-table td:last-child {
+  width: 18%;
+  text-align: center;
+}
+
+/* Action icons */
+
+.courses-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  white-space: nowrap;
+}
+
+.courses-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 43px;
+  height: 38px;
+  margin: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.courses-icon-btn:first-child {
+  border-radius: 4px 0 0 4px;
+}
+
+.courses-icon-btn:last-child {
+  border-radius: 0 4px 4px 0;
+}
+
+.courses-icon-btn + .courses-icon-btn {
+  border-left: none;
+}
+
+.courses-icon-view{
+  color: #07834b;
+}
+.courses-icon-edit{
+    color: #f1de4a;
+}
+.courses-icon-delete{
+  color: #bd3309;
+
+}
+
+.courses-icon-view:hover,
+.courses-icon-edit:hover {
+  background: #e0f5e7;
+}
+
+.courses-icon-delete:hover {
+  background: #ffe6e6;
+  color: #d52222;
+}
+
+/* Add/Edit/View modal form */
+
+.courses-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.courses-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.courses-form-field label {
+  color: #333;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.courses-form-field input {
+  width: 100%;
+  min-height: 42px;
+  padding: 10px 12px;
+  border: 1px solid #d6d6d6;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.courses-form-field input:focus {
+  outline: 2px solid #b8e9c9;
+  border-color: #07834b;
+}
+
+.courses-form-field input[readonly] {
+  background: #f7f7f7;
+  color: #555;
+}
+
+.courses-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.courses-delete-text {
+  color: #444;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* Responsive */
+
+@media (max-width: 1000px) {
+  .courses-content {
+    padding: 20px;
+  }
+
+  .courses-toolbar {
+    gap: 10px;
+  }
+
+  .courses-search {
+    flex-basis: 100%;
+  }
+
+  .courses-select {
+    flex: 1 1 140px;
+  }
+
+  .courses-table {
+    overflow-x: auto;
+  }
+
+  .courses-table table {
+    min-width: 700px;
+  }
+}
+
+@media (max-width: 600px) {
+  .courses-content {
+    padding: 14px;
+  }
+
+  .courses-title {
+    font-size: 25px;
+    margin: 16px 0 20px;
+  }
+
+  .courses-content .page-header {
+    min-height: 62px;
+    padding-bottom: 12px;
+  }
+
+  .courses-toolbar .btn {
+    flex: 1 1 100%;
+    justify-content: center;
+  }
+
+  .courses-select {
+    flex: 1 1 calc(50% - 10px);
+  }
+
+  .courses-table table {
+    min-width: 680px;
+  }
+}
+/* ---------- Admin Employees ---------- */
+
+/* Admin Employees page layout */
+.admin-employees-page {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  background: var(--background);
+}
+
+.admin-employees-content {
+  display: block;
+  flex: 1;
+  min-width: 0;
+  min-height: 100vh;
+  margin: 0;
+  padding: 24px 28px;
+  background: var(--background);
+  box-sizing: border-box;
+  overflow-x: auto;
+}
+
+.admin-employees-content > * {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+
+/* Employee Upload Certificate - match existing JSX */
+
+.employee-dashboard .dashboard-content {
+  flex: 1;
+  min-width: 0;
+  padding: 24px;
+  background: #f7f8fa;
+  box-sizing: border-box;
+}
+
+/* Upload card */
+.employee-dashboard .dashboard-content > .max-w-3xl {
+  width: 100%;
+  max-width: 900px;
+  margin: 24px auto;
+  padding: 20px 24px !important;
+  background: #fff;
+  border: 1px solid #d1d5db;
+  border-radius: 14px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+  box-sizing: border-box;
+}
+
+/* Card title and description */
+.employee-dashboard .dashboard-content > .max-w-3xl h2 {
+  margin: 0 0 4px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.employee-dashboard .dashboard-content > .max-w-3xl > p {
+  margin: 0 0 16px;
+  font-size: 12px;
+  color: #687581;
+}
+
+/* Dashed upload area */
+.employee-dashboard .dashboard-content .h-72 {
+  height: 230px;
+  min-height: 230px;
+  padding: 20px;
+  gap: 10px;
+  border: 1px dashed #9ca3af;
+  border-radius: 14px;
+  box-sizing: border-box;
+}
+
+.employee-dashboard .dashboard-content .h-72 > div:first-child {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 6px;
+}
+
+.employee-dashboard .dashboard-content .h-72 > p {
+  margin: 0;
+}
+
+.employee-dashboard .dashboard-content .h-72 > p.text-lg {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.employee-dashboard .dashboard-content .h-72 > p.text-xs {
+  font-size: 10px;
+}
+
+/* Uploaded file row */
+.employee-dashboard .dashboard-content .max-w-3xl > .mt-3.px-4.py-3 {
+  min-height: 54px;
+  margin-top: 10px;
+  padding: 10px 14px;
+  border-radius: 9px;
+  box-sizing: border-box;
+}
+
+/* Confirmation checkbox */
+.employee-dashboard .dashboard-content .max-w-3xl input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  accent-color: #008044;
+}
+
+/* Footer actions */
+.employee-dashboard .dashboard-content .max-w-3xl > .mt-4.pt-4 {
+  margin-top: 14px;
+  padding-top: 14px;
+  gap: 12px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.employee-dashboard .dashboard-content .max-w-3xl > .mt-4.pt-4 button {
+  min-width: 130px;
+  min-height: 40px;
+  font-size: 12px;
+  border-radius: 8px;
+}
+
+/* Responsive */
+@media (max-width: 650px) {
+  .employee-dashboard .dashboard-content {
+    padding: 16px;
+  }
+
+  .employee-dashboard .dashboard-content > .max-w-3xl {
+    padding: 16px !important;
+  }
+
+  .employee-dashboard .dashboard-content .h-72 {
+    height: 210px;
+    min-height: 210px;
+    padding: 12px;
+  }
+
+  .employee-dashboard .dashboard-content .max-w-3xl > .mt-4.pt-4 {
+    flex-wrap: wrap;
+  }
+
+  .employee-dashboard .dashboard-content .max-w-3xl > .mt-4.pt-4 button {
+    flex: 1;
+    min-width: 0;
+  }
+}
+
+
+/* Employee certificate review screen */
+
+.employee-dashboard .dashboard-content > .max-w-5xl {
+  width: 100%;
+  max-width: 900px;
+  margin: 24px auto;
+  background: #fff;
+  border: 1px solid #d1d5db;
+  border-radius: 14px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Document preview + extracted information */
+.employee-dashboard .max-w-5xl > .grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+}
+
+.employee-dashboard .max-w-5xl > .grid > div {
+  min-width: 0;
+  padding: 14px;
+  box-sizing: border-box;
+}
+
+.employee-dashboard .max-w-5xl h2 {
+  margin: 0 0 10px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #111827;
+}
+
+/* Preview area */
+.employee-dashboard .max-w-5xl .h-\[26rem\] {
+  height: 310px;
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f0f0f0;
+  border-radius: 10px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.employee-dashboard .max-w-5xl .h-\[26rem\] img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* PDF placeholder */
+.employee-dashboard .max-w-5xl .h-\[26rem\] > div {
+  width: 100%;
+  min-height: 190px;
+  padding: 24px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+  overflow-wrap: anywhere;
+}
+
+/* Validation success banner */
+.employee-dashboard .max-w-5xl .bg-emerald-200 {
+  min-height: 30px;
+  padding: 6px 10px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #baf0c6;
+  border-radius: 8px;
+  font-size: 11px;
+  box-sizing: border-box;
+}
+
+/* Certificate information cards */
+.employee-dashboard .upload-info-box {
+  min-width: 0;
+  min-height: 42px;
+  margin-bottom: 6px;
+  padding: 7px 9px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  background: #fff;
+  border: 1px solid #dedede;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  box-sizing: border-box;
+}
+
+.employee-dashboard .upload-info-box > div {
+  min-width: 0;
+}
+
+.employee-dashboard .upload-info-label {
+  margin: 0 0 3px;
+  font-size: 11px;
+  line-height: 1.3;
+  color: #202020;
+}
+
+.employee-dashboard .upload-info-value {
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.35;
+  color: #14532d;
+  overflow-wrap: anywhere;
+}
+
+.employee-dashboard .upload-info-box > svg {
+  flex-shrink: 0;
+  width: 19px;
+  height: 19px;
+}
+
+/* Signature, grade, duration and confidence rows */
+.employee-dashboard .upload-info-row {
+  min-height: 34px;
+  margin-bottom: 6px;
+  padding: 7px 9px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: #fff;
+  border: 1px solid #dedede;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  font-size: 11px;
+  box-sizing: border-box;
+}
+
+.employee-dashboard .upload-info-row span:last-child {
+  text-align: right;
+}
+
+/* Review action footer */
+.employee-dashboard .max-w-5xl > .flex.justify-end {
+  min-height: 58px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  border-top: 1px solid #e5e7eb;
+  box-sizing: border-box;
+}
+
+.employee-dashboard .max-w-5xl > .flex.justify-end button {
+  min-width: 115px;
+  min-height: 36px;
+  padding: 8px 12px;
+  font-size: 11px;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .employee-dashboard .dashboard-content > .max-w-5xl {
+    margin: 16px auto;
+  }
+
+  .employee-dashboard .max-w-5xl > .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .employee-dashboard .max-w-5xl > .grid > div {
+    padding: 14px;
+  }
+
+  .employee-dashboard .max-w-5xl .h-\[26rem\] {
+    height: 260px;
+  }
+}
+
+
+
+/* =========================================
+   EMPLOYEE CERTIFICATE DETAILS
+========================================= */
+
+.employee-dashboard .dashboard-content > .max-w-5xl {
+  width: 100%;
+  max-width: 900px;
+  margin: 20px 0 28px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 16px 20px;
+  align-items: stretch;
+  box-sizing: border-box;
+}
+
+/* Back button */
+.employee-dashboard .dashboard-content > .mb-4 {
+  margin-bottom: 14px;
+}
+
+.employee-dashboard .dashboard-content > .mb-4 button {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #087b3e;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Preview and details cards */
+.employee-dashboard .dashboard-content > .max-w-5xl > .bg-white {
+  min-width: 0;
+  background: #fff;
+  border-radius: 12px;
+  box-sizing: border-box;
+}
+
+.employee-dashboard .dashboard-content > .max-w-5xl > .bg-white:first-child {
+  padding: 18px;
+}
+
+.employee-dashboard .dashboard-content > .max-w-5xl h2 {
+  margin: 0 0 14px;
+  color: #111;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* Certificate preview panel */
+.employee-dashboard .dashboard-content .min-h-\[20rem\] {
+  min-height: 270px;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #eee;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.employee-dashboard .dashboard-content .min-h-\[20rem\] img {
+  display: block;
+  width: 100%;
+  max-height: 250px;
+  object-fit: contain;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
+}
+
+.employee-dashboard .dashboard-content .min-h-\[20rem\] span {
+  color: #777;
+  font-size: 12px;
+  text-align: center;
+}
+
+/* Certificate information card */
+.employee-dashboard .dashboard-content > .max-w-5xl > .bg-white.rounded-xl {
+  align-self: stretch;
+  overflow: hidden;
+}
+
+/* Detail rows */
+.employee-dashboard .dashboard-content .border-b {
+  min-height: 56px;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid #e8e8e8;
+  box-sizing: border-box;
+}
+
+.employee-dashboard .dashboard-content .border-b > svg {
+  flex-shrink: 0;
+  width: 23px;
+  height: 23px;
+  color: #08752f;
+}
+
+.employee-dashboard .dashboard-content .border-b > .flex-1 {
+  flex: 1;
+  min-width: 0;
+}
+
+.employee-dashboard .dashboard-content .border-b p {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.employee-dashboard .dashboard-content .border-b p.font-bold {
+  margin-bottom: 3px;
+  color: #111;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.employee-dashboard .dashboard-content .border-b p.text-sm {
+  color: #333;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.employee-dashboard .dashboard-content .border-b .rounded-full {
+  flex-shrink: 0;
+  padding: 5px 12px;
+  border-radius: 20px;
+  background: #baf0c6;
+  color: #166534;
+  font-size: 11px;
+}
+
+/* Upload and renew buttons */
+.employee-dashboard .dashboard-content .border-b + .flex.gap-3 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 12px;
+}
+
+.employee-dashboard .dashboard-content .border-b + .flex.gap-3 > button {
+  flex: 1 1 140px;
+  min-height: 36px;
+  padding: 8px 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border: 1px solid #d7dfd9;
+  border-radius: 8px;
+  background: #fff;
+  color: #087b3e;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.employee-dashboard .dashboard-content .border-b + .flex.gap-3 > button:first-child {
+  background: #087f46;
+  border-color: #087f46;
+  color: #fff;
+}
+
+/* Certificate timeline */
+.employee-dashboard .dashboard-content > .max-w-5xl > .lg\:col-span-2 {
+  grid-column: 1 / -1;
+  min-width: 0;
+  padding: 18px 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-sizing: border-box;
+}
+
+.employee-dashboard .dashboard-content .relative.flex.justify-around {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  gap: 12px;
+  padding-top: 2px;
+}
+
+.employee-dashboard .dashboard-content .relative.flex.justify-around > .absolute {
+  position: absolute;
+  top: 23px;
+  left: 12%;
+  right: 12%;
+  border-top: 1px dashed #aaa;
+}
+
+.employee-dashboard .dashboard-content .relative.flex.justify-around > .relative.z-10 {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.employee-dashboard .dashboard-content .relative.flex.justify-around .rounded-full {
+  width: 46px;
+  height: 46px;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #edf0ed;
+}
+
+.employee-dashboard .dashboard-content .relative.flex.justify-around .rounded-full svg {
+  width: 23px;
+  height: 23px;
+  color: #08752f;
+}
+
+.employee-dashboard .dashboard-content .relative.flex.justify-around p {
+  margin: 0 0 3px;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.employee-dashboard .dashboard-content .relative.flex.justify-around p.font-bold {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.employee-dashboard .dashboard-content .relative.flex.justify-around p.text-xs {
+  color: #08752f;
+  font-weight: 600;
+}
+
+/* Tablet and mobile */
+@media (max-width: 900px) {
+  .employee-dashboard .dashboard-content > .max-w-5xl {
+    max-width: 100%;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .employee-dashboard .dashboard-content > .max-w-5xl > .lg\:col-span-2 {
+    grid-column: 1;
+  }
+}
+
+@media (max-width: 500px) {
+  .employee-dashboard .dashboard-content > .max-w-5xl {
+    gap: 12px;
+  }
+
+  .employee-dashboard .dashboard-content > .max-w-5xl > .bg-white:first-child {
+    padding: 12px;
+  }
+
+  .employee-dashboard .dashboard-content .min-h-\[20rem\] {
+    min-height: 220px;
+  }
+
+  .employee-dashboard .dashboard-content .relative.flex.justify-around {
+    gap: 4px;
+  }
+
+  .employee-dashboard .dashboard-content .relative.flex.justify-around p {
+    font-size: 10px;
+  }
+
+  .employee-dashboard .dashboard-content > .max-w-5xl > .lg\:col-span-2 {
+    padding: 14px 10px;
   }
 }

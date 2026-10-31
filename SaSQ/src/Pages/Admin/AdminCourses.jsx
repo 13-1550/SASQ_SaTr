@@ -5,7 +5,7 @@ import Table from "../../Components/Common/Table/Table";
 import Button from "../../Components/Common/Button/Button";
 import Input from "../../Components/Common/Input/Input";
 import Modal from "../../Components/Common/Modal/Modal";
-
+import AdminHeader from "./AdminHeader";
 const initialCourses = [
     { id: 1, name: "Cybersecurity Awareness", code: "CSA-1012", trainer: "SAUDIA Learning", validity: "Permanent", mandatory: "All Employees" },
     { id: 2, name: "Fire Safety", code: "IOSH", trainer: "Civil Defense", validity: "Permanent", mandatory: "All Employees" },
@@ -108,20 +108,7 @@ function AdminCourses() {
             <Sidebar role="admin" />
 
             <main className="courses-content">
-                <header className="page-header">
-                    <div className="page-header-user">
-                        <button type="button" className="notification-btn" aria-label="Notifications">
-                            <Bell size={24} />
-                            <span className="notification-badge">1</span>
-                        </button>
-                        <CircleUserRound className="user-avatar" strokeWidth={1.3} />
-                        <div className="user-info">
-                            <span className="user-name">Khalid Mohammed</span>
-                            <span className="user-role">Admin</span>
-                        </div>
-                    </div>
-                </header>
-
+                <AdminHeader />
                 <h1 className="courses-title">Courses List</h1>
 
                 <div className="courses-toolbar">

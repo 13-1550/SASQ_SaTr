@@ -1,10 +1,12 @@
 import { useMemo, useState } from "react";
-import { Bell, CircleUserRound, Search, Filter, ChevronDown, List, Pencil, Trash2, Plus } from "lucide-react";
+import { Bell, CircleUserRound, Search, Filter, ChevronDown, List, Pencil, Trash2, Plus, Train } from "lucide-react";
 import Sidebar from "../../Components/Common/Sidebar/Sidebar";
 import Table from "../../Components/Common/Table/Table";
 import Button from "../../Components/Common/Button/Button";
 import Input from "../../Components/Common/Input/Input";
 import Modal from "../../Components/Common/Modal/Modal";
+import TrainingCoordinatorHeader from "./TrainingCoordHeader";
+
 
 const initialCourses = [
     { id: 1, name: "Cybersecurity Awareness", code: "CSA-1012", trainer: "SAUDIA Learning", validity: "Permanent", mandatory: "All Employees" },
@@ -108,19 +110,7 @@ function CoordinatorCourses() {
             <Sidebar role="coordinator" />
 
             <main className="courses-content">
-                <header className="page-header">
-                    <div className="page-header-user">
-                        <button type="button" className="notification-btn" aria-label="Notifications">
-                            <Bell size={24} />
-                            <span className="notification-badge">1</span>
-                        </button>
-                        <CircleUserRound className="user-avatar" strokeWidth={1.3} />
-                        <div className="user-info">
-                            <span className="user-name">Noura Alansari</span>
-                            <span className="user-role">Training Coordinator</span>
-                        </div>
-                    </div>
-                </header>
+                <TrainingCoordinatorHeader />
 
                 <h1 className="courses-title">Courses List</h1>
 

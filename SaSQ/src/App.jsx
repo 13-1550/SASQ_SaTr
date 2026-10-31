@@ -41,13 +41,13 @@ function App() {
                 <Route path="/manager/reports" element={<ManagerReports />} />
 
                 {/* Employee */}
-                <Route path="/employee" element={<EmployeeMainPage />} />
+                <Route path="/employee/main" element={<EmployeeMainPage />} />
                 <Route path="/employee/courses" element={<CoursesPage />} />
                 <Route path="/employee/upload" element={<EmployeeUpload />} />
                 <Route path="/employee/certificates" element={<EmployeeCertificates />} />
 
                 {/* Training Coordinator */}
-                <Route path="/coordinator" element={<CoordinatorMain />} />
+                <Route path="/coordinator/main" element={<CoordinatorMain />} />
                 <Route path="/coordinator/employees" element={<CoordinatorEmployees />}/>
                 <Route path="/coordinator/reports" element={<CoordinatorReports />}/>
                 <Route path="/coordinator/courses" element={<CoordinatorCourses />}/>

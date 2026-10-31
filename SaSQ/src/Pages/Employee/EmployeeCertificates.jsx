@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 import Sidebar from "../../Components/Common/Sidebar/Sidebar";
 import Button from "../../Components/Common/Button/Button";
-
+import EmployeeHeader from "./EmployeeHeader";
 // TODO: load from the API (e.g. by certificate id from the route)
 const certificate = {
   name: "Certified Information Security Manager (CISM)",
@@ -54,24 +54,7 @@ export default function EmployeeCertificates() {
       <Sidebar role="employee" />
 
       <main className="dashboard-content">
-        <header className="page-header">
-          <div>
-            <h1 className="page-header-title">Certificate Details</h1>
-            <p className="page-header-subtitle">View complete certificate information and validity status.</p>
-          </div>
-          <div className="page-header-user">
-            <button type="button" className="notification-btn" aria-label="Notifications">
-              <Bell size={24} />
-              <span className="notification-badge">1</span>
-            </button>
-            <CircleUser size={46} className="user-avatar" />
-            <div className="user-info">
-              <span className="user-name">Omar Mohammed</span>
-              <span className="user-role">Employee</span>
-            </div>
-          </div>
-        </header>
-
+       <EmployeeHeader />
         <div className="mb-4">
           <button
             type="button"

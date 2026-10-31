@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 import Sidebar from "../../Components/Common/Sidebar/Sidebar";
 import Button from "../../Components/Common/Button/Button";
+import EmployeeHeader from "./EmployeeHeader";
 
 const MAX_SIZE = 10 * 1024 * 1024; // 10 MB
 const ALLOWED_TYPES = ["application/pdf", "image/jpeg", "image/png"];
@@ -20,27 +21,7 @@ const extracted = {
   confidence: "95%",
 };
 
-function PageHeader({ title, subtitle }) {
-  return (
-    <header className="page-header">
-      <div>
-        <h1 className="page-header-title">{title}</h1>
-        <p className="page-header-subtitle">{subtitle}</p>
-      </div>
-      <div className="page-header-user">
-        <button type="button" className="notification-btn" aria-label="Notifications">
-          <Bell size={24} />
-          <span className="notification-badge">1</span>
-        </button>
-        <CircleUser size={46} className="user-avatar" />
-        <div className="user-info">
-          <span className="user-name">Omar Mohammed</span>
-          <span className="user-role">Employee</span>
-        </div>
-      </div>
-    </header>
-  );
-}
+
 
 function InfoBox({ label, value, checked }) {
   return (
@@ -114,10 +95,8 @@ export default function EmployeeUpload() {
         <Sidebar role="employee" />
 
         <main className="dashboard-content">
-          <PageHeader
-            title="Review Certificate"
-            subtitle="Review the automatically extracted data and AI validation status before final submission."
-          />
+          <EmployeeHeader />  
+          
 
           <div className="bg-white rounded-2xl shadow-sm border border-gray-300 max-w-5xl">
             <div className="grid grid-cols-1 md:grid-cols-2 md:divide-x divide-gray-200">
@@ -177,10 +156,7 @@ export default function EmployeeUpload() {
       <Sidebar role="employee" />
 
       <main className="dashboard-content">
-        <PageHeader
-          title="Upload Certificate"
-          subtitle="Upload your training certificate for AI verification and approval."
-        />
+        <EmployeeHeader />
 
         <div className="max-w-3xl bg-white p-8 rounded-2xl shadow-sm border border-gray-300">
           <h2 className="text-lg font-bold">Upload Training Certificate</h2>
