@@ -5267,3 +5267,37 @@ body {
     min-width: 780px;
   }
 }
+
+/* HEADER LOGOUT BUTTON */
+
+.header-logout-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 10px 14px;
+  border: 1px solid #f0cccc;
+  border-radius: 8px;
+  background: #fff;
+  color: #c62828;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  white-space: nowrap;
+}
+
+.header-logout-button:hover {
+  background: #fff0f0;
+  border-color: #e7a4a4;
+}
+
+@media (max-width: 600px) {
+  .header-logout-button {
+    padding: 9px;
+  }
+
+  .header-logout-button span {
+    display: none;
+  }
+}

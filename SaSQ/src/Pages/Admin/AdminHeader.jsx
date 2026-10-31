@@ -7,6 +7,8 @@ import {
   Mail,
   X,
 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { LogOut } from "lucide-react";
 
 function AdminHeader() {
   const [showNotifications, setShowNotifications] = useState(false);
@@ -49,6 +51,11 @@ function AdminHeader() {
   const unreadCount = notifications.filter(
     (notification) => notification.unread
   ).length;
+  const navigate = useNavigate();
+
+function handleLogout() {
+  navigate("/");
+}
 
   function markAllAsRead() {
     setNotifications((previous) =>
@@ -158,6 +165,15 @@ function AdminHeader() {
             <span>Admin</span>
           </div>
         </div>
+
+        <button
+  type="button"
+  className="header-logout-button"
+  onClick={handleLogout}
+>
+  <LogOut size={18} />
+  <span>Logout</span>
+        </button>
       </div>
     </header>
   );

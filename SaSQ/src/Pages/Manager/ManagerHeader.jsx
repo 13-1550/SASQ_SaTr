@@ -8,6 +8,8 @@ import {
   X,
   Check,
 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { LogOut } from "lucide-react";
 
 function ManagerHeader() {
   const [showNotifications, setShowNotifications] = useState(false);
@@ -58,6 +60,12 @@ function ManagerHeader() {
   const unreadCount = notifications.filter(
     (notification) => notification.unread
   ).length;
+
+  const navigate = useNavigate();
+
+    function handleLogout() {
+  navigate("/");
+    }
 
   function markAllAsRead() {
     setNotifications((previous) =>
@@ -179,6 +187,14 @@ function ManagerHeader() {
             <strong>Mohammed Abdullah</strong>
             <span>Manager</span>
           </div>
+          <button
+  type="button"
+  className="header-logout-button"
+  onClick={handleLogout}
+>
+  <LogOut size={18} />
+  <span>Logout</span>
+        </button>
         </div>
       </div>
     </header>

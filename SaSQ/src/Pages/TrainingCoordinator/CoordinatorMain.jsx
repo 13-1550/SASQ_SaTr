@@ -15,7 +15,7 @@ import Sidebar from "../../Components/Common/Sidebar/Sidebar";
 import Card from "../../Components/Common/Card/Card";
 import Table from "../../Components/Common/Table/Table";
 import Button from "../../Components/Common/Button/Button";
-
+import TrainingCoordinatorHeader from "./TrainingCoordHeader";
 
 
 // Numbers shown in the cards
@@ -156,86 +156,7 @@ function CoordinatorMain() {
 
             <div className="cmain-content">
 
-                {/* ===== Header (title + notifications + user) ===== */}
-                <header className="page-header">
-
-                    <div>
-                        <h1 className="page-header-title">Main page</h1>
-                        <p className="page-header-subtitle">View and manage all Functionality</p>
-                    </div>
-
-                    <div className="page-header-user">
-
-                        <div className="page-header-notifications">
-
-                            <button
-                                className="notification-btn"
-                                aria-label="Notifications"
-                                onClick={toggleNotifications}
-                            >
-                                <Bell size={24} />
-
-                                {unreadCount > 0 && (
-                                    <span className="notification-badge">{unreadCount}</span>
-                                )}
-                            </button>
-
-                            {isNotificationsOpen && (
-                                <div className="notification-popup">
-
-                                    <div className="notification-popup-header">
-                                        <h3>Notifications</h3>
-
-                                        <div className="notification-popup-actions">
-                                            <button className="mark-read-btn" onClick={markAllAsRead}>
-                                                Mark all as read
-                                            </button>
-                                        </div>
-                                    </div>
-
-                                    <div className="notification-popup-list">
-                                        {notifications.map(function (note) {
-                                            return (
-                                                <div
-                                                    key={note.id}
-                                                    className={
-                                                        note.read
-                                                            ? "notification-popup-item"
-                                                            : "notification-popup-item unread"
-                                                    }
-                                                >
-                                                    <span className={"notification-popup-icon " + note.type}>
-                                                        {getNotificationIcon(note.type)}
-                                                    </span>
-
-                                                    <div className="notification-popup-content">
-                                                        <strong>{note.title}</strong>
-                                                        <small>{note.time}</small>
-                                                        <p>{note.message}</p>
-                                                    </div>
-                                                </div>
-                                            );
-                                        })}
-
-                                        {notifications.length === 0 && (
-                                            <p className="notification-empty">No notifications</p>
-                                        )}
-                                    </div>
-
-                                </div>
-                            )}
-                        </div>
-
-                        <CircleUserRound className="user-avatar" strokeWidth={1.3} />
-
-                        <div className="user-info">
-                            <span className="user-name">Noura Alansari</span>
-                            <span className="user-role">Training Coordinator</span>
-                        </div>
-
-                    </div>
-                </header>
-
+                <TrainingCoordinatorHeader />
 
                 {/* ===== Top row: 3 big cards ===== */}
                 <div className="cmain-top-row">

@@ -4,7 +4,7 @@ import Sidebar from "../../Components/Common/Sidebar/Sidebar";
 import Reports from "../Reports/Reports";
 import Button from "../../Components/Common/Button/Button";
 import Input from "../../Components/Common/Input/Input";
-
+import TrainingCoordinatorHeader from "./TrainingCoordHeader";
 function CoordinatorReports() {
   const [reportType, setReportType] = useState("completion");
   const [employeeSearch, setEmployeeSearch] = useState("");
@@ -298,6 +298,7 @@ function CoordinatorReports() {
       <Sidebar role="coordinator" />
 
       <main className="CoordinatorReports-content">
+        <TrainingCoordinatorHeader />
         <h1>Training Reports</h1>
         <p>Monitor employee training progress and certificates.</p>
 
