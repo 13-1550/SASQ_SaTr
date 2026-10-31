@@ -18,12 +18,14 @@ import EmployeeCertificates from "./Pages/Employee/EmployeeCertificates";
 import CoordinatorMain from "./Pages/TrainingCoordinator/CoordinatorMain";
 import CoordinatorEmployees from "./Pages/TrainingCoordinator/EmployeesRecord";
 import CoordinatorReports from "./Pages/TrainingCoordinator/CoordReports";
-
+import CoordinatorCourses from "./Pages/TrainingCoordinator/TrainingCoordinatorCourses";
 // Admin
 import AdminMain from "./Pages/Admin/AMainPage";
 import UserManagement from "./Pages/Admin/UserManagement";
 import AdminReports from "./Pages/Admin/AdminReports";
 import AdminAuditLog from "./Pages/Admin/AdminAuditLog";
+import AdminEmployees from "./Pages/Admin/AdminEmployees";
+import AdminCourses from "./Pages/Admin/AdminCourses";
 
 function App() {
     return (
@@ -46,23 +48,17 @@ function App() {
 
                 {/* Training Coordinator */}
                 <Route path="/coordinator" element={<CoordinatorMain />} />
-                <Route
-                    path="/coordinator/employees"
-                    element={<CoordinatorEmployees />}
-                />
-                <Route
-                    path="/coordinator/reports"
-                    element={<CoordinatorReports />}
-                />
+                <Route path="/coordinator/employees" element={<CoordinatorEmployees />}/>
+                <Route path="/coordinator/reports" element={<CoordinatorReports />}/>
+                <Route path="/coordinator/courses" element={<CoordinatorCourses />}/>
 
                 {/* Admin */}
                 <Route path="/admin/main" element={<AdminMain />} />
-                <Route
-                    path="/admin/user-management"
-                    element={<UserManagement />}
-                />
+                <Route path="/admin/user-management" element={<UserManagement />}/>
                 <Route path="/admin/reports" element={<AdminReports />} />
                 <Route path="/admin/audit-log" element={<AdminAuditLog />} />
+                <Route path="/admin/employees" element={<AdminEmployees />} />
+                <Route path="/admin/courses" element={<AdminCourses />} />
 
                 {/* Unknown URLs */}
                 <Route path="*" element={<Navigate to="/" replace />} />
